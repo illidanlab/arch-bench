@@ -1,0 +1,103 @@
+{
+  "$defs": {
+    "CommunicationComfort": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "title": "CommunicationComfort",
+      "type": "string"
+    },
+    "DisclosureTendency": {
+      "enum": [
+        "direct",
+        "mixed",
+        "indirect"
+      ],
+      "title": "DisclosureTendency",
+      "type": "string"
+    },
+    "Persona": {
+      "additionalProperties": false,
+      "properties": {
+        "communication_comfort": {
+          "$ref": "#/$defs/CommunicationComfort"
+        },
+        "disclosure_tendency": {
+          "$ref": "#/$defs/DisclosureTendency"
+        },
+        "family_role_pattern": {
+          "title": "Family Role Pattern",
+          "type": "string"
+        },
+        "talkativeness": {
+          "$ref": "#/$defs/Talkativeness"
+        },
+        "treatment_phase": {
+          "$ref": "#/$defs/TreatmentPhase"
+        },
+        "vocabulary_complexity": {
+          "$ref": "#/$defs/VocabularyComplexity"
+        }
+      },
+      "required": [
+        "vocabulary_complexity",
+        "talkativeness",
+        "disclosure_tendency",
+        "treatment_phase",
+        "family_role_pattern",
+        "communication_comfort"
+      ],
+      "title": "Persona",
+      "type": "object"
+    },
+    "Talkativeness": {
+      "enum": [
+        "reserved",
+        "moderate",
+        "talkative"
+      ],
+      "title": "Talkativeness",
+      "type": "string"
+    },
+    "TreatmentPhase": {
+      "enum": [
+        "early",
+        "mid",
+        "maintenance"
+      ],
+      "title": "TreatmentPhase",
+      "type": "string"
+    },
+    "VocabularyComplexity": {
+      "enum": [
+        "simple",
+        "typical",
+        "rich"
+      ],
+      "title": "VocabularyComplexity",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "child": {
+      "$ref": "#/$defs/Persona"
+    },
+    "parent": {
+      "$ref": "#/$defs/Persona"
+    },
+    "persona_version": {
+      "title": "Persona Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "persona_version",
+    "child",
+    "parent"
+  ],
+  "title": "DyadPersonas",
+  "type": "object"
+}

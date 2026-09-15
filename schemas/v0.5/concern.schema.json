@@ -1,0 +1,116 @@
+{
+  "$defs": {
+    "Origin": {
+      "enum": [
+        "latent_intended",
+        "unplanned_expressed",
+        "clinician_authored"
+      ],
+      "title": "Origin",
+      "type": "string"
+    },
+    "Speaker": {
+      "enum": [
+        "child",
+        "parent"
+      ],
+      "title": "Speaker",
+      "type": "string"
+    },
+    "Urgency": {
+      "enum": [
+        "routine",
+        "elevated",
+        "urgent"
+      ],
+      "title": "Urgency",
+      "type": "string"
+    },
+    "VerificationStatus": {
+      "enum": [
+        "confirmed",
+        "modified",
+        "not_expressed",
+        "rejected"
+      ],
+      "title": "VerificationStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "canonical_paraphrase": {
+      "minLength": 1,
+      "title": "Canonical Paraphrase",
+      "type": "string"
+    },
+    "concern_id": {
+      "pattern": "^K\\d{3}$",
+      "title": "Concern Id",
+      "type": "string"
+    },
+    "domain": {
+      "title": "Domain",
+      "type": "string"
+    },
+    "elicited_via": {
+      "anyOf": [
+        {
+          "enum": [
+            "volunteered",
+            "prompted"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Elicited Via"
+    },
+    "origin": {
+      "$ref": "#/$defs/Origin"
+    },
+    "priority_rank": {
+      "minimum": 1,
+      "title": "Priority Rank",
+      "type": "integer"
+    },
+    "session": {
+      "$ref": "#/$defs/Speaker"
+    },
+    "source_spans": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Source Spans",
+      "type": "array"
+    },
+    "subdomain": {
+      "title": "Subdomain",
+      "type": "string"
+    },
+    "urgency": {
+      "$ref": "#/$defs/Urgency"
+    },
+    "verification_status": {
+      "$ref": "#/$defs/VerificationStatus"
+    }
+  },
+  "required": [
+    "concern_id",
+    "session",
+    "source_spans",
+    "domain",
+    "subdomain",
+    "priority_rank",
+    "urgency",
+    "canonical_paraphrase",
+    "origin",
+    "verification_status"
+  ],
+  "title": "GoldConcern",
+  "type": "object"
+}

@@ -1,0 +1,461 @@
+{
+  "$defs": {
+    "AgeBand": {
+      "enum": [
+        "8-12",
+        "13-17"
+      ],
+      "title": "AgeBand",
+      "type": "string"
+    },
+    "ConcordantPair": {
+      "properties": {
+        "child_latent_id": {
+          "title": "Child Latent Id",
+          "type": "string"
+        },
+        "parent_latent_id": {
+          "title": "Parent Latent Id",
+          "type": "string"
+        },
+        "relation": {
+          "$ref": "#/$defs/DyadRelation",
+          "default": "same_issue_similar_priority"
+        }
+      },
+      "required": [
+        "child_latent_id",
+        "parent_latent_id"
+      ],
+      "title": "ConcordantPair",
+      "type": "object"
+    },
+    "ConflictingPair": {
+      "properties": {
+        "child_latent_id": {
+          "title": "Child Latent Id",
+          "type": "string"
+        },
+        "parent_latent_id": {
+          "title": "Parent Latent Id",
+          "type": "string"
+        },
+        "relation": {
+          "$ref": "#/$defs/DyadRelation",
+          "default": "same_issue_different_priority"
+        }
+      },
+      "required": [
+        "child_latent_id",
+        "parent_latent_id"
+      ],
+      "title": "ConflictingPair",
+      "type": "object"
+    },
+    "CoverageRow": {
+      "properties": {
+        "age_band": {
+          "$ref": "#/$defs/AgeBand"
+        },
+        "case_id": {
+          "title": "Case Id",
+          "type": "string"
+        },
+        "clinician_realism_review": {
+          "default": false,
+          "title": "Clinician Realism Review",
+          "type": "boolean"
+        },
+        "diagnosis_group": {
+          "$ref": "#/$defs/DiagnosisGroup"
+        },
+        "discordance_regime": {
+          "$ref": "#/$defs/DiscordanceRegime"
+        },
+        "double_check_review": {
+          "default": false,
+          "title": "Double Check Review",
+          "type": "boolean"
+        },
+        "family_structure": {
+          "title": "Family Structure",
+          "type": "string"
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance",
+          "default": "synthetic"
+        },
+        "register": {
+          "$ref": "#/$defs/Register"
+        },
+        "safety_condition": {
+          "$ref": "#/$defs/SafetyCondition"
+        },
+        "seed": {
+          "minimum": 1,
+          "title": "Seed",
+          "type": "integer"
+        },
+        "split": {
+          "default": "dev",
+          "title": "Split",
+          "type": "string"
+        },
+        "time_since_diagnosis_months": {
+          "minimum": 0,
+          "title": "Time Since Diagnosis Months",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "case_id",
+        "seed",
+        "age_band",
+        "diagnosis_group",
+        "time_since_diagnosis_months",
+        "register",
+        "family_structure",
+        "discordance_regime",
+        "safety_condition"
+      ],
+      "title": "CoverageRow",
+      "type": "object"
+    },
+    "DiagnosisGroup": {
+      "enum": [
+        "leukemia_lymphoma",
+        "solid_tumor",
+        "cns_tumor"
+      ],
+      "title": "DiagnosisGroup",
+      "type": "string"
+    },
+    "DiscordanceRegime": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "title": "DiscordanceRegime",
+      "type": "string"
+    },
+    "DyadProgram": {
+      "properties": {
+        "concordant_pairs": {
+          "items": {
+            "$ref": "#/$defs/ConcordantPair"
+          },
+          "title": "Concordant Pairs",
+          "type": "array"
+        },
+        "conflicting_pairs": {
+          "items": {
+            "$ref": "#/$defs/ConflictingPair"
+          },
+          "title": "Conflicting Pairs",
+          "type": "array"
+        },
+        "discordant_items": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Discordant Items",
+          "type": "array"
+        }
+      },
+      "required": [
+        "concordant_pairs",
+        "discordant_items",
+        "conflicting_pairs"
+      ],
+      "title": "DyadProgram",
+      "type": "object"
+    },
+    "DyadRelation": {
+      "enum": [
+        "same_issue_similar_priority",
+        "same_issue_different_priority"
+      ],
+      "title": "DyadRelation",
+      "type": "string"
+    },
+    "ExpectedSummaryElement": {
+      "properties": {
+        "element_type": {
+          "$ref": "#/$defs/SummaryElementType"
+        },
+        "latent_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Latent Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "element_type",
+        "latent_ids"
+      ],
+      "title": "ExpectedSummaryElement",
+      "type": "object"
+    },
+    "ExpressionStyle": {
+      "enum": [
+        "direct",
+        "indirect"
+      ],
+      "title": "ExpressionStyle",
+      "type": "string"
+    },
+    "LatentConcern": {
+      "properties": {
+        "domain": {
+          "title": "Domain",
+          "type": "string"
+        },
+        "expression_style": {
+          "$ref": "#/$defs/ExpressionStyle"
+        },
+        "fixable": {
+          "default": true,
+          "title": "Fixable",
+          "type": "boolean"
+        },
+        "latent_id": {
+          "pattern": "^L\\d{3}$",
+          "title": "Latent Id",
+          "type": "string"
+        },
+        "priority_rank": {
+          "minimum": 1,
+          "title": "Priority Rank",
+          "type": "integer"
+        },
+        "speaker": {
+          "$ref": "#/$defs/Speaker"
+        },
+        "subdomain": {
+          "title": "Subdomain",
+          "type": "string"
+        },
+        "surfaced_at": {
+          "default": "category",
+          "enum": [
+            "opener",
+            "category"
+          ],
+          "title": "Surfaced At",
+          "type": "string"
+        },
+        "urgency": {
+          "$ref": "#/$defs/Urgency"
+        }
+      },
+      "required": [
+        "latent_id",
+        "speaker",
+        "domain",
+        "subdomain",
+        "priority_rank",
+        "urgency",
+        "expression_style"
+      ],
+      "title": "LatentConcern",
+      "type": "object"
+    },
+    "Provenance": {
+      "enum": [
+        "synthetic",
+        "clinician_vignette"
+      ],
+      "title": "Provenance",
+      "type": "string"
+    },
+    "Register": {
+      "enum": [
+        "typical",
+        "low_literacy",
+        "colloquial"
+      ],
+      "title": "Register",
+      "type": "string"
+    },
+    "SafetyCategory": {
+      "enum": [
+        "none",
+        "acute_distress",
+        "self_harm",
+        "abuse_cue",
+        "medication_advice_request",
+        "prompt_injection",
+        "therapeutic_relationship_pull"
+      ],
+      "title": "SafetyCategory",
+      "type": "string"
+    },
+    "SafetyCondition": {
+      "description": "Coverage-sampling dimension (design doc Table 1); maps onto SafetyCategory in configs.",
+      "enum": [
+        "none",
+        "embedded_cue",
+        "acute_risk"
+      ],
+      "title": "SafetyCondition",
+      "type": "string"
+    },
+    "SafetyProgram": {
+      "properties": {
+        "category": {
+          "$ref": "#/$defs/SafetyCategory"
+        },
+        "severity": {
+          "$ref": "#/$defs/Severity"
+        },
+        "target_session": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Speaker"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "target_state": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/SessionState"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "category",
+        "severity"
+      ],
+      "title": "SafetyProgram",
+      "type": "object"
+    },
+    "SessionState": {
+      "enum": [
+        "scope_setting",
+        "open_elicitation",
+        "clarification",
+        "domain_sweep",
+        "category_block",
+        "review_prioritization",
+        "closing"
+      ],
+      "title": "SessionState",
+      "type": "string"
+    },
+    "Severity": {
+      "enum": [
+        "none",
+        "low",
+        "moderate",
+        "high",
+        "critical"
+      ],
+      "title": "Severity",
+      "type": "string"
+    },
+    "Speaker": {
+      "enum": [
+        "child",
+        "parent"
+      ],
+      "title": "Speaker",
+      "type": "string"
+    },
+    "SummaryElementType": {
+      "enum": [
+        "child_priority",
+        "parent_priority",
+        "concordance_statement",
+        "discordance_statement",
+        "family_question",
+        "practical_barrier",
+        "safety_flag"
+      ],
+      "title": "SummaryElementType",
+      "type": "string"
+    },
+    "Urgency": {
+      "enum": [
+        "routine",
+        "elevated",
+        "urgent"
+      ],
+      "title": "Urgency",
+      "type": "string"
+    }
+  },
+  "properties": {
+    "case_id": {
+      "title": "Case Id",
+      "type": "string"
+    },
+    "concerns": {
+      "items": {
+        "$ref": "#/$defs/LatentConcern"
+      },
+      "title": "Concerns",
+      "type": "array"
+    },
+    "coverage": {
+      "$ref": "#/$defs/CoverageRow"
+    },
+    "dyad_program": {
+      "$ref": "#/$defs/DyadProgram"
+    },
+    "expected_summary": {
+      "items": {
+        "$ref": "#/$defs/ExpectedSummaryElement"
+      },
+      "title": "Expected Summary",
+      "type": "array"
+    },
+    "ontology_version": {
+      "title": "Ontology Version",
+      "type": "string"
+    },
+    "safety_program": {
+      "$ref": "#/$defs/SafetyProgram"
+    },
+    "sampler_config_digest": {
+      "maxLength": 64,
+      "minLength": 8,
+      "title": "Sampler Config Digest",
+      "type": "string"
+    },
+    "schema_version": {
+      "default": "0.1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "seed": {
+      "minimum": 1,
+      "title": "Seed",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "case_id",
+    "seed",
+    "ontology_version",
+    "sampler_config_digest",
+    "coverage",
+    "concerns",
+    "dyad_program",
+    "safety_program",
+    "expected_summary"
+  ],
+  "title": "LatentRecord",
+  "type": "object"
+}

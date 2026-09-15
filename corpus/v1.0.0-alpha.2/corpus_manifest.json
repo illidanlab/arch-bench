@@ -1,0 +1,73 @@
+{
+  "annotation_status": "Annotations in this release are machine-generated and pending expert verification.",
+  "artifacts": {
+    "docs/annotation_guide_v0.2.md": "32e7ad9ab900be1ec7c87cbe8b0d5b56164da723ca89dc55cdb4eacc90cfd7a2",
+    "ontology/ontology_v0.2.md": "51d106fc56b5b02168cbc320e93cc82779154b7cf0eb886daf8847887f0bb5d4",
+    "ontology/ontology_v0.2.yaml": "dd6b66f03f645fdbee3b7e099c3d1183ef031f235139a281a6e505af970c1b07",
+    "schemas/v0.5/case.schema.json": "c450e64fedd53c3774fb91fbdc1e3f50bb8651ed0882bb643d676f3469656795",
+    "schemas/v0.5/concern.schema.json": "8fa5e2814659041dab60a52c7b916928e04ad1ae74cb081649871edc8914864f",
+    "schemas/v0.5/coverage_row.schema.json": "ca2dd53562234c0fd9c5c837096b5380fc3503d3fe252fa88da8135dc74593e5",
+    "schemas/v0.5/dyad.schema.json": "59e210032662b69e6df380d9da3f0f3388ae76cb4caa88e07fbfb399c583a976",
+    "schemas/v0.5/latent_truth.schema.json": "5db4bc5544ca768960eacfaef0ff45d80e95c0306d7f823a1ed0147ef4d1f357",
+    "schemas/v0.5/persona.schema.json": "700b6d63c39ad7d94166547133037ac4a1bd9e7e551924af6e80bbcf12902113",
+    "schemas/v0.5/safety.schema.json": "de423d44a09b0fcfc0c1fa868792ee3cf11ef4f4150439fefd1e0567626408f0"
+  },
+  "cases": {
+    "ABV0-R1-0001": "bdc17a853c99895901df022c91593667d30e358d63dd8f277b7895b02c36ed03",
+    "ABV0-R1-0002": "7359c596099fba048306597c2d9d19d165761d47f0e0b5913ae46c7e8749d508",
+    "ABV0-R1-0003": "52670da811f0e606cad9062e06d59a43f751acca59e11b14a1b0ccc614f2e816",
+    "ABV0-R1-0004": "27a4d60776bd33f4c99fd919661ef45d3ffef66c1f2f76682b4de6548f401300",
+    "ABV0-R1-0005": "fe1bccb9e35cf8b7e106b3e2436aaf61637f51af7a893ed0d0b1e418a53d658d",
+    "ABV0-R1-0006": "af0fab1b782d2c9995b43693be8757de44912dcb71fcb8d153dcd1d7e1244825",
+    "ABV0-R1-0007": "0e89ff0fa1b107eb404d3c5f456e8056bbb81f1953f8d2c2ea447e1052050304",
+    "ABV0-R1-0008": "662462ea0cc703203b5cb6adc2e71d9694f4c1c4a56d1ddf973d827fb22fb5dc",
+    "ABV0-R1-0009": "c47d4140068f87931376a370f79e9c47c2510bca125df5af32f472d2aebd5d5b",
+    "ABV0-R1-0010": "c005562fe09b7253345de91404d763ef7bce8381527df470a45accc61ab73330",
+    "ABV0-R1-0011": "031100f25ecba215316c66c119c078ebea3a858f313cea215c970d60dadd4090",
+    "ABV0-R1-0012": "30065fc9b581e4f472761c1bbd8e77afe4176a7a3a14e8541ab33028f72a84a2",
+    "ABV0-R1-0013": "429b45cb072433f817b3e7a0dcc47621cf12bf1d51c4f594869587160e9f2c3a",
+    "ABV0-R1-0014": "9461a1bf89442e99d5ffc355ef97a6ebb04960a6d2cb3c01528958ce90a2d814",
+    "ABV0-R1-0015": "4a4f4bf5ed515d81bbf72c092d38d96169ec155a697faad1cbc8f3b056aebb7f",
+    "ABV0-R1-0016": "587c831e6e01fffd3e3495183db6391078b76f623682d8565a16c5f3317c98b8",
+    "ABV0-R1-0017": "ae568dbda5c36b051a44ef33535a57be2032e1ae20df9b889c9658dfe2e3ce18",
+    "ABV0-R1-0018": "5e8da31f2ba5ef764f2199c5e20f9bc5f9b16ecbd27c2bcfc1b49ede662b884d",
+    "ABV0-R1-0019": "6fa2162f3585e4040ea78ba96fbdc59533696d20aec8427059c0a99917c4add8",
+    "ABV0-R1-0020": "80bc2083f001bc70fdbeba18c0257d69f5c0f54dc380b56152397d87d81961d9",
+    "ABV0-R1-0021": "19487d1c209dd1e7d2420a39d859864c9f0b0a131136247d6af67eb8d24435f3",
+    "ABV0-R1-0022": "784c0a871583769ac6b1b26602d4eed705db7778d6bc345db6383cbd98f56d93",
+    "ABV0-R1-0023": "6726f1bcb87a1cbb547c2c9acc54cabfbeb9e0dfe42bc9d2e47bbab03b4d0bc9",
+    "ABV0-R1-0024": "97a367dbaadafb57ff52241794714de051543ebea949aa444a07d0ea1efa186b",
+    "ABV0-R1-0025": "55115aea8d53c1104e7b20a53b6b9e5f090e79815567bf25e43e552ac9299a2c",
+    "ABV0-R1-0026": "3467dd791117b86c38d8dfbe4fee28901e5e8636999b8f79ff7324c48b2c884a",
+    "ABV0-R1-0027": "5874d9ad5ae8b859989f977549945637e573076b7d964d7417fad361e6231499",
+    "ABV0-R1-0028": "d34903b6488cab4ad2a81e8ce348c88c7c30c224be57936bfbb143243aaca35e",
+    "ABV0-R1-0029": "ed9a82033b0afc015fef1d3974be81a40ea03f4c074ea93012c18ffffaf188ad",
+    "ABV0-R1-0030": "75848f9e28b698f33737e2d1c80ca90c0201787c7e330ff229d11328b6929ebd",
+    "ABV0-R1-0031": "3db56c75468e1904ea7107a36eb04af2cc1bfa16d61e9b735704178916f4c7f8",
+    "ABV0-R1-0032": "0472c51e5527dc340643ffd4f36b0c887ca54a4ef7b1d5a46e148f05ebf3259b",
+    "ABV0-R1-0033": "595eba8c19e04d3cfefce427d1c5c9f6a17a0129ebec2a6a2b61a5c74a5e8c7a",
+    "ABV0-R1-0034": "593f726680c5cf143696acc17ad8790419a2991651ce46a9b8b4112b810d0d69",
+    "ABV0-R1-0035": "037f46d96bb0726ebc89b4e6e34af3aa6bd159a0bf1022254583391b953fabfb",
+    "ABV0-R1-0036": "ded56a176e54295d34c6419f5c94d7522988ba6c668ad195be22fcd8a070be6e"
+  },
+  "created_at": "2026-09-14T20:21:15Z",
+  "generation_provenance": {
+    "model": {
+      "family": "claude",
+      "model_id": "claude-opus-5",
+      "provider": "anthropic"
+    },
+    "ontology_version": "0.2.0",
+    "schema_version": "0.5.0",
+    "versions": {
+      "dialogue": "dialogue-v0.5",
+      "elicitation": "elicitation-v0.5",
+      "guide": "guide-v0.2",
+      "interview": "interview-v0.5",
+      "persona": "persona-v0.1",
+      "preannotation": "preannotation-v0.2"
+    }
+  },
+  "title": "ARCH-Bench synthetic child-parent dyad corpus",
+  "version": "1.0.0-alpha.2"
+}

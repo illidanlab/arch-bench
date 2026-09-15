@@ -1,0 +1,872 @@
+{
+  "$defs": {
+    "AgeBand": {
+      "enum": [
+        "8-12",
+        "13-17"
+      ],
+      "title": "AgeBand",
+      "type": "string"
+    },
+    "AuditInfo": {
+      "additionalProperties": false,
+      "properties": {
+        "phi_scan_passed": {
+          "title": "Phi Scan Passed",
+          "type": "boolean"
+        },
+        "schema_valid": {
+          "title": "Schema Valid",
+          "type": "boolean"
+        },
+        "source_spans_valid": {
+          "title": "Source Spans Valid",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "schema_valid",
+        "source_spans_valid",
+        "phi_scan_passed"
+      ],
+      "title": "AuditInfo",
+      "type": "object"
+    },
+    "CaseMetadata": {
+      "additionalProperties": false,
+      "properties": {
+        "child_age_band": {
+          "$ref": "#/$defs/AgeBand"
+        },
+        "corpus_tier": {
+          "title": "Corpus Tier",
+          "type": "integer"
+        },
+        "created_at": {
+          "title": "Created At",
+          "type": "string"
+        },
+        "diagnosis_group": {
+          "$ref": "#/$defs/DiagnosisGroup"
+        },
+        "discordance_regime": {
+          "$ref": "#/$defs/DiscordanceRegime"
+        },
+        "family_structure": {
+          "title": "Family Structure",
+          "type": "string"
+        },
+        "generator": {
+          "$ref": "#/$defs/GeneratorInfo"
+        },
+        "mirror_of": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Mirror Of"
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        },
+        "register": {
+          "$ref": "#/$defs/Register"
+        },
+        "safety_condition": {
+          "$ref": "#/$defs/SafetyCondition"
+        },
+        "script_version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Script Version"
+        },
+        "split": {
+          "default": "dev",
+          "title": "Split",
+          "type": "string"
+        },
+        "time_since_diagnosis_months": {
+          "minimum": 0,
+          "title": "Time Since Diagnosis Months",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "child_age_band",
+        "diagnosis_group",
+        "time_since_diagnosis_months",
+        "register",
+        "family_structure",
+        "discordance_regime",
+        "safety_condition",
+        "provenance",
+        "generator",
+        "created_at",
+        "corpus_tier"
+      ],
+      "title": "CaseMetadata",
+      "type": "object"
+    },
+    "CaseStatus": {
+      "enum": [
+        "planned",
+        "latent_sampled",
+        "dialogue_generated",
+        "preannotated",
+        "human_verified",
+        "double_checked",
+        "frozen",
+        "released"
+      ],
+      "title": "CaseStatus",
+      "type": "string"
+    },
+    "CommunicationComfort": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "title": "CommunicationComfort",
+      "type": "string"
+    },
+    "DiagnosisGroup": {
+      "enum": [
+        "leukemia_lymphoma",
+        "solid_tumor",
+        "cns_tumor"
+      ],
+      "title": "DiagnosisGroup",
+      "type": "string"
+    },
+    "DisclosureTendency": {
+      "enum": [
+        "direct",
+        "mixed",
+        "indirect"
+      ],
+      "title": "DisclosureTendency",
+      "type": "string"
+    },
+    "DiscordanceRegime": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "title": "DiscordanceRegime",
+      "type": "string"
+    },
+    "DyadPersonas": {
+      "additionalProperties": false,
+      "properties": {
+        "child": {
+          "$ref": "#/$defs/Persona"
+        },
+        "parent": {
+          "$ref": "#/$defs/Persona"
+        },
+        "persona_version": {
+          "title": "Persona Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "persona_version",
+        "child",
+        "parent"
+      ],
+      "title": "DyadPersonas",
+      "type": "object"
+    },
+    "DyadRelation": {
+      "enum": [
+        "same_issue_similar_priority",
+        "same_issue_different_priority"
+      ],
+      "title": "DyadRelation",
+      "type": "string"
+    },
+    "GeneratorInfo": {
+      "additionalProperties": false,
+      "properties": {
+        "family": {
+          "title": "Family",
+          "type": "string"
+        },
+        "harness": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Harness"
+        },
+        "model_id": {
+          "title": "Model Id",
+          "type": "string"
+        },
+        "prompt_version": {
+          "title": "Prompt Version",
+          "type": "string"
+        },
+        "provider": {
+          "title": "Provider",
+          "type": "string"
+        }
+      },
+      "required": [
+        "provider",
+        "family",
+        "model_id",
+        "prompt_version"
+      ],
+      "title": "GeneratorInfo",
+      "type": "object"
+    },
+    "Gold": {
+      "additionalProperties": false,
+      "properties": {
+        "concerns": {
+          "items": {
+            "$ref": "#/$defs/GoldConcern"
+          },
+          "title": "Concerns",
+          "type": "array"
+        },
+        "dyad": {
+          "$ref": "#/$defs/GoldDyad"
+        },
+        "safety": {
+          "$ref": "#/$defs/SafetyGold"
+        },
+        "summary_required": {
+          "items": {
+            "$ref": "#/$defs/SummaryRequiredElement"
+          },
+          "title": "Summary Required",
+          "type": "array"
+        }
+      },
+      "required": [
+        "concerns",
+        "dyad",
+        "summary_required",
+        "safety"
+      ],
+      "title": "Gold",
+      "type": "object"
+    },
+    "GoldConcern": {
+      "additionalProperties": false,
+      "properties": {
+        "canonical_paraphrase": {
+          "minLength": 1,
+          "title": "Canonical Paraphrase",
+          "type": "string"
+        },
+        "concern_id": {
+          "pattern": "^K\\d{3}$",
+          "title": "Concern Id",
+          "type": "string"
+        },
+        "domain": {
+          "title": "Domain",
+          "type": "string"
+        },
+        "elicited_via": {
+          "anyOf": [
+            {
+              "enum": [
+                "volunteered",
+                "prompted"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Elicited Via"
+        },
+        "origin": {
+          "$ref": "#/$defs/Origin"
+        },
+        "priority_rank": {
+          "minimum": 1,
+          "title": "Priority Rank",
+          "type": "integer"
+        },
+        "session": {
+          "$ref": "#/$defs/Speaker"
+        },
+        "source_spans": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Source Spans",
+          "type": "array"
+        },
+        "subdomain": {
+          "title": "Subdomain",
+          "type": "string"
+        },
+        "urgency": {
+          "$ref": "#/$defs/Urgency"
+        },
+        "verification_status": {
+          "$ref": "#/$defs/VerificationStatus"
+        }
+      },
+      "required": [
+        "concern_id",
+        "session",
+        "source_spans",
+        "domain",
+        "subdomain",
+        "priority_rank",
+        "urgency",
+        "canonical_paraphrase",
+        "origin",
+        "verification_status"
+      ],
+      "title": "GoldConcern",
+      "type": "object"
+    },
+    "GoldConcordantPair": {
+      "additionalProperties": false,
+      "properties": {
+        "child_concern_id": {
+          "title": "Child Concern Id",
+          "type": "string"
+        },
+        "parent_concern_id": {
+          "title": "Parent Concern Id",
+          "type": "string"
+        },
+        "relation": {
+          "$ref": "#/$defs/DyadRelation"
+        }
+      },
+      "required": [
+        "child_concern_id",
+        "parent_concern_id",
+        "relation"
+      ],
+      "title": "GoldConcordantPair",
+      "type": "object"
+    },
+    "GoldDiscordantItem": {
+      "additionalProperties": false,
+      "properties": {
+        "concern_id": {
+          "title": "Concern Id",
+          "type": "string"
+        },
+        "present_in": {
+          "$ref": "#/$defs/PresentIn"
+        }
+      },
+      "required": [
+        "concern_id",
+        "present_in"
+      ],
+      "title": "GoldDiscordantItem",
+      "type": "object"
+    },
+    "GoldDyad": {
+      "additionalProperties": false,
+      "properties": {
+        "concordant_pairs": {
+          "items": {
+            "$ref": "#/$defs/GoldConcordantPair"
+          },
+          "title": "Concordant Pairs",
+          "type": "array"
+        },
+        "conflicting_pairs": {
+          "items": {
+            "$ref": "#/$defs/GoldConcordantPair"
+          },
+          "title": "Conflicting Pairs",
+          "type": "array"
+        },
+        "discordant_items": {
+          "items": {
+            "$ref": "#/$defs/GoldDiscordantItem"
+          },
+          "title": "Discordant Items",
+          "type": "array"
+        }
+      },
+      "required": [
+        "concordant_pairs",
+        "discordant_items",
+        "conflicting_pairs"
+      ],
+      "title": "GoldDyad",
+      "type": "object"
+    },
+    "Origin": {
+      "enum": [
+        "latent_intended",
+        "unplanned_expressed",
+        "clinician_authored"
+      ],
+      "title": "Origin",
+      "type": "string"
+    },
+    "Persona": {
+      "additionalProperties": false,
+      "properties": {
+        "communication_comfort": {
+          "$ref": "#/$defs/CommunicationComfort"
+        },
+        "disclosure_tendency": {
+          "$ref": "#/$defs/DisclosureTendency"
+        },
+        "family_role_pattern": {
+          "title": "Family Role Pattern",
+          "type": "string"
+        },
+        "talkativeness": {
+          "$ref": "#/$defs/Talkativeness"
+        },
+        "treatment_phase": {
+          "$ref": "#/$defs/TreatmentPhase"
+        },
+        "vocabulary_complexity": {
+          "$ref": "#/$defs/VocabularyComplexity"
+        }
+      },
+      "required": [
+        "vocabulary_complexity",
+        "talkativeness",
+        "disclosure_tendency",
+        "treatment_phase",
+        "family_role_pattern",
+        "communication_comfort"
+      ],
+      "title": "Persona",
+      "type": "object"
+    },
+    "PresentIn": {
+      "enum": [
+        "child_only",
+        "parent_only"
+      ],
+      "title": "PresentIn",
+      "type": "string"
+    },
+    "Provenance": {
+      "enum": [
+        "synthetic",
+        "clinician_vignette"
+      ],
+      "title": "Provenance",
+      "type": "string"
+    },
+    "Register": {
+      "enum": [
+        "typical",
+        "low_literacy",
+        "colloquial"
+      ],
+      "title": "Register",
+      "type": "string"
+    },
+    "SafetyCategory": {
+      "enum": [
+        "none",
+        "acute_distress",
+        "self_harm",
+        "abuse_cue",
+        "medication_advice_request",
+        "prompt_injection",
+        "therapeutic_relationship_pull"
+      ],
+      "title": "SafetyCategory",
+      "type": "string"
+    },
+    "SafetyCondition": {
+      "description": "Coverage-sampling dimension (design doc Table 1); maps onto SafetyCategory in configs.",
+      "enum": [
+        "none",
+        "embedded_cue",
+        "acute_risk"
+      ],
+      "title": "SafetyCondition",
+      "type": "string"
+    },
+    "SafetyGold": {
+      "additionalProperties": false,
+      "properties": {
+        "category": {
+          "$ref": "#/$defs/SafetyCategory"
+        },
+        "expected_route": {
+          "title": "Expected Route",
+          "type": "string"
+        },
+        "public_release_eligible": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Public Release Eligible"
+        },
+        "reviewer_status": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reviewer Status"
+        },
+        "severity": {
+          "$ref": "#/$defs/Severity"
+        },
+        "source_spans": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Source Spans",
+          "type": "array"
+        }
+      },
+      "required": [
+        "category",
+        "severity",
+        "source_spans",
+        "expected_route"
+      ],
+      "title": "SafetyGold",
+      "type": "object"
+    },
+    "Session": {
+      "additionalProperties": false,
+      "properties": {
+        "turns": {
+          "items": {
+            "$ref": "#/$defs/Turn"
+          },
+          "minItems": 1,
+          "title": "Turns",
+          "type": "array"
+        }
+      },
+      "required": [
+        "turns"
+      ],
+      "title": "Session",
+      "type": "object"
+    },
+    "SessionState": {
+      "enum": [
+        "scope_setting",
+        "open_elicitation",
+        "clarification",
+        "domain_sweep",
+        "category_block",
+        "review_prioritization",
+        "closing"
+      ],
+      "title": "SessionState",
+      "type": "string"
+    },
+    "Severity": {
+      "enum": [
+        "none",
+        "low",
+        "moderate",
+        "high",
+        "critical"
+      ],
+      "title": "Severity",
+      "type": "string"
+    },
+    "Speaker": {
+      "enum": [
+        "child",
+        "parent"
+      ],
+      "title": "Speaker",
+      "type": "string"
+    },
+    "SummaryElementType": {
+      "enum": [
+        "child_priority",
+        "parent_priority",
+        "concordance_statement",
+        "discordance_statement",
+        "family_question",
+        "practical_barrier",
+        "safety_flag"
+      ],
+      "title": "SummaryElementType",
+      "type": "string"
+    },
+    "SummaryRequiredElement": {
+      "additionalProperties": false,
+      "properties": {
+        "concern_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Concern Ids",
+          "type": "array"
+        },
+        "element_id": {
+          "pattern": "^S\\d{3}$",
+          "title": "Element Id",
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/$defs/SummaryElementType"
+        }
+      },
+      "required": [
+        "element_id",
+        "type"
+      ],
+      "title": "SummaryRequiredElement",
+      "type": "object"
+    },
+    "Talkativeness": {
+      "enum": [
+        "reserved",
+        "moderate",
+        "talkative"
+      ],
+      "title": "Talkativeness",
+      "type": "string"
+    },
+    "TreatmentPhase": {
+      "enum": [
+        "early",
+        "mid",
+        "maintenance"
+      ],
+      "title": "TreatmentPhase",
+      "type": "string"
+    },
+    "Turn": {
+      "additionalProperties": false,
+      "properties": {
+        "category": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Category"
+        },
+        "speaker": {
+          "$ref": "#/$defs/TurnSpeaker"
+        },
+        "state": {
+          "$ref": "#/$defs/SessionState"
+        },
+        "text": {
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        },
+        "turn_id": {
+          "title": "Turn Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "turn_id",
+        "state",
+        "speaker",
+        "text"
+      ],
+      "title": "Turn",
+      "type": "object"
+    },
+    "TurnSpeaker": {
+      "enum": [
+        "system",
+        "user"
+      ],
+      "title": "TurnSpeaker",
+      "type": "string"
+    },
+    "Urgency": {
+      "enum": [
+        "routine",
+        "elevated",
+        "urgent"
+      ],
+      "title": "Urgency",
+      "type": "string"
+    },
+    "VerificationInfo": {
+      "additionalProperties": false,
+      "properties": {
+        "double_checked": {
+          "title": "Double Checked",
+          "type": "boolean"
+        },
+        "human_verifier": {
+          "title": "Human Verifier",
+          "type": "string"
+        },
+        "notes": {
+          "title": "Notes",
+          "type": "string"
+        },
+        "patches": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Patches",
+          "type": "array"
+        },
+        "preannotator_version": {
+          "title": "Preannotator Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "preannotator_version",
+        "human_verifier",
+        "double_checked",
+        "patches",
+        "notes"
+      ],
+      "title": "VerificationInfo",
+      "type": "object"
+    },
+    "VerificationStatus": {
+      "enum": [
+        "confirmed",
+        "modified",
+        "not_expressed",
+        "rejected"
+      ],
+      "title": "VerificationStatus",
+      "type": "string"
+    },
+    "VocabularyComplexity": {
+      "enum": [
+        "simple",
+        "typical",
+        "rich"
+      ],
+      "title": "VocabularyComplexity",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "audit": {
+      "$ref": "#/$defs/AuditInfo"
+    },
+    "case_id": {
+      "title": "Case Id",
+      "type": "string"
+    },
+    "case_status": {
+      "$ref": "#/$defs/CaseStatus"
+    },
+    "gold": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Gold"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "latent_truth": {
+      "additionalProperties": true,
+      "title": "Latent Truth",
+      "type": "object"
+    },
+    "metadata": {
+      "$ref": "#/$defs/CaseMetadata"
+    },
+    "personas": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/DyadPersonas"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "schema_version": {
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "seed": {
+      "minimum": 1,
+      "title": "Seed",
+      "type": "integer"
+    },
+    "sessions": {
+      "additionalProperties": {
+        "$ref": "#/$defs/Session"
+      },
+      "propertyNames": {
+        "$ref": "#/$defs/Speaker"
+      },
+      "title": "Sessions",
+      "type": "object"
+    },
+    "verification": {
+      "$ref": "#/$defs/VerificationInfo"
+    }
+  },
+  "required": [
+    "schema_version",
+    "case_id",
+    "case_status",
+    "seed",
+    "metadata",
+    "latent_truth",
+    "sessions",
+    "verification",
+    "audit"
+  ],
+  "title": "Case",
+  "type": "object"
+}

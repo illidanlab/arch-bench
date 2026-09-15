@@ -1,0 +1,124 @@
+{
+  "$defs": {
+    "AgeBand": {
+      "enum": [
+        "8-12",
+        "13-17"
+      ],
+      "title": "AgeBand",
+      "type": "string"
+    },
+    "DiagnosisGroup": {
+      "enum": [
+        "leukemia_lymphoma",
+        "solid_tumor",
+        "cns_tumor"
+      ],
+      "title": "DiagnosisGroup",
+      "type": "string"
+    },
+    "DiscordanceRegime": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "title": "DiscordanceRegime",
+      "type": "string"
+    },
+    "Provenance": {
+      "enum": [
+        "synthetic",
+        "clinician_vignette"
+      ],
+      "title": "Provenance",
+      "type": "string"
+    },
+    "Register": {
+      "enum": [
+        "typical",
+        "low_literacy",
+        "colloquial"
+      ],
+      "title": "Register",
+      "type": "string"
+    },
+    "SafetyCondition": {
+      "description": "Coverage-sampling dimension (design doc Table 1); maps onto SafetyCategory in configs.",
+      "enum": [
+        "none",
+        "embedded_cue",
+        "acute_risk"
+      ],
+      "title": "SafetyCondition",
+      "type": "string"
+    }
+  },
+  "properties": {
+    "age_band": {
+      "$ref": "#/$defs/AgeBand"
+    },
+    "case_id": {
+      "title": "Case Id",
+      "type": "string"
+    },
+    "clinician_realism_review": {
+      "default": false,
+      "title": "Clinician Realism Review",
+      "type": "boolean"
+    },
+    "diagnosis_group": {
+      "$ref": "#/$defs/DiagnosisGroup"
+    },
+    "discordance_regime": {
+      "$ref": "#/$defs/DiscordanceRegime"
+    },
+    "double_check_review": {
+      "default": false,
+      "title": "Double Check Review",
+      "type": "boolean"
+    },
+    "family_structure": {
+      "title": "Family Structure",
+      "type": "string"
+    },
+    "provenance": {
+      "$ref": "#/$defs/Provenance",
+      "default": "synthetic"
+    },
+    "register": {
+      "$ref": "#/$defs/Register"
+    },
+    "safety_condition": {
+      "$ref": "#/$defs/SafetyCondition"
+    },
+    "seed": {
+      "minimum": 1,
+      "title": "Seed",
+      "type": "integer"
+    },
+    "split": {
+      "default": "dev",
+      "title": "Split",
+      "type": "string"
+    },
+    "time_since_diagnosis_months": {
+      "minimum": 0,
+      "title": "Time Since Diagnosis Months",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "case_id",
+    "seed",
+    "age_band",
+    "diagnosis_group",
+    "time_since_diagnosis_months",
+    "register",
+    "family_structure",
+    "discordance_regime",
+    "safety_condition"
+  ],
+  "title": "CoverageRow",
+  "type": "object"
+}

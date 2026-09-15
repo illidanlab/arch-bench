@@ -1,0 +1,755 @@
+{
+  "schema_version": "0.5.0",
+  "case_id": "ABV0-R1-0032",
+  "case_status": "preannotated",
+  "seed": 1855438560,
+  "metadata": {
+    "child_age_band": "8-12",
+    "diagnosis_group": "solid_tumor",
+    "time_since_diagnosis_months": 12,
+    "register": "typical",
+    "family_structure": "single_caregiver_household",
+    "discordance_regime": "medium",
+    "safety_condition": "none",
+    "provenance": "synthetic",
+    "generator": {
+      "provider": "anthropic",
+      "family": "claude",
+      "model_id": "claude-opus-5",
+      "prompt_version": "dialogue-v0.5",
+      "harness": "claude-code-subagent"
+    },
+    "created_at": "2026-09-11",
+    "corpus_tier": 1,
+    "split": "dev",
+    "script_version": "elicitation-v0.5",
+    "mirror_of": "ABV0-T1-0032"
+  },
+  "latent_truth": {
+    "schema_version": "0.3.0",
+    "case_id": "ABV0-R1-0032",
+    "seed": 1855438560,
+    "ontology_version": "0.1.0",
+    "sampler_config_digest": "759e83b4cdd6f402",
+    "coverage": {
+      "case_id": "ABV0-R1-0032",
+      "seed": 1855438560,
+      "age_band": "8-12",
+      "diagnosis_group": "solid_tumor",
+      "time_since_diagnosis_months": 12,
+      "register": "typical",
+      "family_structure": "single_caregiver_household",
+      "discordance_regime": "medium",
+      "safety_condition": "none",
+      "provenance": "synthetic",
+      "clinician_realism_review": false,
+      "double_check_review": false,
+      "split": "dev"
+    },
+    "concerns": [
+      {
+        "latent_id": "L001",
+        "speaker": "child",
+        "domain": "physical_symptoms",
+        "subdomain": "appetite_eating",
+        "priority_rank": 2,
+        "urgency": "routine",
+        "expression_style": "indirect",
+        "surfaced_at": "category",
+        "fixable": true
+      },
+      {
+        "latent_id": "L002",
+        "speaker": "child",
+        "domain": "quality_of_life",
+        "subdomain": "food_restrictions",
+        "priority_rank": 1,
+        "urgency": "routine",
+        "expression_style": "direct",
+        "surfaced_at": "category",
+        "fixable": true
+      },
+      {
+        "latent_id": "L003",
+        "speaker": "child",
+        "domain": "communication_preferences",
+        "subdomain": "wants_more_time_to_speak",
+        "priority_rank": 4,
+        "urgency": "routine",
+        "expression_style": "indirect",
+        "surfaced_at": "category",
+        "fixable": true
+      },
+      {
+        "latent_id": "L004",
+        "speaker": "child",
+        "domain": "treatment_questions",
+        "subdomain": "instructions_unclear",
+        "priority_rank": 3,
+        "urgency": "routine",
+        "expression_style": "indirect",
+        "surfaced_at": "category",
+        "fixable": true
+      },
+      {
+        "latent_id": "L005",
+        "speaker": "parent",
+        "domain": "physical_symptoms",
+        "subdomain": "appetite_eating",
+        "priority_rank": 2,
+        "urgency": "routine",
+        "expression_style": "direct",
+        "surfaced_at": "category",
+        "fixable": true
+      },
+      {
+        "latent_id": "L006",
+        "speaker": "parent",
+        "domain": "quality_of_life",
+        "subdomain": "food_restrictions",
+        "priority_rank": 1,
+        "urgency": "routine",
+        "expression_style": "direct",
+        "surfaced_at": "category",
+        "fixable": true
+      },
+      {
+        "latent_id": "L007",
+        "speaker": "parent",
+        "domain": "communication_preferences",
+        "subdomain": "wants_more_time_to_speak",
+        "priority_rank": 3,
+        "urgency": "routine",
+        "expression_style": "direct",
+        "surfaced_at": "category",
+        "fixable": true
+      },
+      {
+        "latent_id": "L008",
+        "speaker": "parent",
+        "domain": "emotional_concerns",
+        "subdomain": "loneliness_isolation",
+        "priority_rank": 4,
+        "urgency": "routine",
+        "expression_style": "indirect",
+        "surfaced_at": "category",
+        "fixable": true
+      }
+    ],
+    "dyad_program": {
+      "concordant_pairs": [
+        {
+          "child_latent_id": "L001",
+          "parent_latent_id": "L005",
+          "relation": "same_issue_similar_priority"
+        },
+        {
+          "child_latent_id": "L002",
+          "parent_latent_id": "L006",
+          "relation": "same_issue_similar_priority"
+        },
+        {
+          "child_latent_id": "L003",
+          "parent_latent_id": "L007",
+          "relation": "same_issue_similar_priority"
+        }
+      ],
+      "discordant_items": [
+        "L004",
+        "L008"
+      ],
+      "conflicting_pairs": []
+    },
+    "safety_program": {
+      "category": "none",
+      "severity": "none",
+      "target_session": null,
+      "target_state": null
+    },
+    "expected_summary": [
+      {
+        "element_type": "child_priority",
+        "latent_ids": [
+          "L002"
+        ]
+      },
+      {
+        "element_type": "parent_priority",
+        "latent_ids": [
+          "L006"
+        ]
+      },
+      {
+        "element_type": "concordance_statement",
+        "latent_ids": [
+          "L001",
+          "L005"
+        ]
+      },
+      {
+        "element_type": "concordance_statement",
+        "latent_ids": [
+          "L002",
+          "L006"
+        ]
+      },
+      {
+        "element_type": "concordance_statement",
+        "latent_ids": [
+          "L003",
+          "L007"
+        ]
+      },
+      {
+        "element_type": "discordance_statement",
+        "latent_ids": [
+          "L004"
+        ]
+      },
+      {
+        "element_type": "discordance_statement",
+        "latent_ids": [
+          "L008"
+        ]
+      }
+    ]
+  },
+  "personas": {
+    "persona_version": "persona-v0.1",
+    "child": {
+      "vocabulary_complexity": "typical",
+      "talkativeness": "talkative",
+      "disclosure_tendency": "indirect",
+      "treatment_phase": "maintenance",
+      "family_role_pattern": "one caregiver coordinates all care",
+      "communication_comfort": "high"
+    },
+    "parent": {
+      "vocabulary_complexity": "typical",
+      "talkativeness": "reserved",
+      "disclosure_tendency": "direct",
+      "treatment_phase": "maintenance",
+      "family_role_pattern": "one caregiver coordinates all care",
+      "communication_comfort": "high"
+    }
+  },
+  "sessions": {
+    "child": {
+      "turns": [
+        {
+          "turn_id": "c01",
+          "state": "scope_setting",
+          "speaker": "system",
+          "text": "I'm going to ask you some questions about how you and your family have been. I will ask about several areas. I will ask about how you've felt physically and your feelings. I will ask about school and friends. I will also ask about information about sleep or taking medicine. We will make a summary of your responses to share with your medical team. Your team is your doctors and your nurses. It is also other people who work with you here. I'll just call them your care team. The things you tell us help the care team to know how to help you. If you ever need to share something urgent or that can't wait, make sure you call your care team right away, or have your family help you call.",
+          "category": null
+        },
+        {
+          "turn_id": "c02",
+          "state": "scope_setting",
+          "speaker": "user",
+          "text": "Yeah, I'm ready.",
+          "category": null
+        },
+        {
+          "turn_id": "c03",
+          "state": "category_block",
+          "speaker": "system",
+          "text": "I will start by asking about how you've felt physically. Have you had any problems with pain? What about sleep? What about nausea? What about your energy level?",
+          "category": "body"
+        },
+        {
+          "turn_id": "c04",
+          "state": "category_block",
+          "speaker": "user",
+          "text": "I'm fine mostly. My mom keeps telling me to finish my plate. I don't eat much at dinner anymore.",
+          "category": "body"
+        },
+        {
+          "turn_id": "c05",
+          "state": "category_block",
+          "speaker": "system",
+          "text": "I will make a note that you do not eat much at dinner. Anything else you want to tell me?",
+          "category": "body"
+        },
+        {
+          "turn_id": "c06",
+          "state": "category_block",
+          "speaker": "user",
+          "text": "One more thing. I got told different things about swimming with my port in. My mom asked somebody else and they said the opposite.",
+          "category": "body"
+        },
+        {
+          "turn_id": "c07",
+          "state": "category_block",
+          "speaker": "system",
+          "text": "I will make a note that you were told different things about swimming. Now I want to ask about your feelings. Have you felt sad, worried, grumpy, or lonely? Have you felt different from usual?",
+          "category": "feelings"
+        },
+        {
+          "turn_id": "c08",
+          "state": "category_block",
+          "speaker": "user",
+          "text": "I'm good. My mom let me have a sleepover on Friday and my friend stayed the whole night.",
+          "category": "feelings"
+        },
+        {
+          "turn_id": "c09",
+          "state": "category_block",
+          "speaker": "system",
+          "text": "How is schoolwork going? Have you been able to stay in touch with your friends? How are those things going?",
+          "category": "school_friends"
+        },
+        {
+          "turn_id": "c10",
+          "state": "category_block",
+          "speaker": "user",
+          "text": "School's good. I did my project on volcanoes and I got to read it out to the class.",
+          "category": "school_friends"
+        },
+        {
+          "turn_id": "c11",
+          "state": "category_block",
+          "speaker": "system",
+          "text": "Have you had any difficulties with taking medicine, sleeping, eating, or using the bathroom regularly?",
+          "category": "everyday"
+        },
+        {
+          "turn_id": "c12",
+          "state": "category_block",
+          "speaker": "user",
+          "text": "The eating one. I'm not allowed anything anybody brings in to school. On somebody's birthday everyone gets a cupcake and I have to say no.",
+          "category": "everyday"
+        },
+        {
+          "turn_id": "c13",
+          "state": "category_block",
+          "speaker": "system",
+          "text": "I will make a note that you are not allowed what people bring in to school. Anything else you want to tell me?",
+          "category": "everyday"
+        },
+        {
+          "turn_id": "c14",
+          "state": "category_block",
+          "speaker": "user",
+          "text": "And I'll be halfway through telling the doctor something and the nurse comes in. Then nobody comes back to me. I want somebody to listen to the end of it.",
+          "category": "everyday"
+        },
+        {
+          "turn_id": "c15",
+          "state": "review_prioritization",
+          "speaker": "system",
+          "text": "Anything else that you would like to share?",
+          "category": null
+        },
+        {
+          "turn_id": "c16",
+          "state": "review_prioritization",
+          "speaker": "user",
+          "text": "Just the birthday cupcake thing again. Everybody knows I'm not allowed now and they stopped even asking me.",
+          "category": null
+        },
+        {
+          "turn_id": "c17",
+          "state": "review_prioritization",
+          "speaker": "system",
+          "text": "Okay, thanks for sharing all of that information. Now, I will make a summary of topics that may be helpful to discuss with your medical team. I'm going to give everything a number. You can just let me know which numbers are most important. We can make them bold and put them at the top of the list. Okay, here's your list:\n1. Not wanting to eat much at dinner\n2. Being told different things about swimming\n3. Treats other kids bring in that he is not allowed\n4. Someone to listen to the whole of what he says\nWhich ones should we put on the top of the list?",
+          "category": null
+        },
+        {
+          "turn_id": "c18",
+          "state": "review_prioritization",
+          "speaker": "user",
+          "text": "3. The cupcakes and the stuff I can't have at school.",
+          "category": null
+        },
+        {
+          "turn_id": "c19",
+          "state": "review_prioritization",
+          "speaker": "system",
+          "text": "Here's your list:\n1. Treats other kids bring in that he is not allowed\n2. Not wanting to eat much at dinner\n3. Being told different things about swimming\n4. Someone to listen to the whole of what he says\nAny changes?",
+          "category": null
+        },
+        {
+          "turn_id": "c20",
+          "state": "review_prioritization",
+          "speaker": "user",
+          "text": "Yeah, because that one comes up at school all the time.",
+          "category": null
+        },
+        {
+          "turn_id": "c21",
+          "state": "closing",
+          "speaker": "system",
+          "text": "Thanks for talking with me today. I hope your conversation with the medical team will help. Please be sure to talk about these items in more detail with your medical team.\n—\nIf anything urgent comes up between visits, make sure you call your care team right away. Your parent can help, if needed.",
+          "category": null
+        }
+      ]
+    },
+    "parent": {
+      "turns": [
+        {
+          "turn_id": "p01",
+          "state": "scope_setting",
+          "speaker": "system",
+          "text": "I'm going to ask you some specific questions about how you and your family are doing. I will ask about problems in a number of areas. I will ask about your child's physical health, how you are doing emotionally, family and social things, practical things, and how things are communicated with you and your child. We will share a summary of your responses with the medical team. We hope that this process will help with communication and ensuring access to resources. The medical team is your doctors and your nurses. They can address things and offer referrals and support services as needed. This also gives us information about how these services may be working for you. Then we know what we may need to change. If you ever have urgent or time-sensitive concerns between visits, make sure that you call your care team directly.",
+          "category": null
+        },
+        {
+          "turn_id": "p02",
+          "state": "scope_setting",
+          "speaker": "user",
+          "text": "Right. Let's get through it.",
+          "category": null
+        },
+        {
+          "turn_id": "p03",
+          "state": "category_block",
+          "speaker": "system",
+          "text": "I will start by asking about how your child is doing physically. Have they had any problems with pain, sleep, appetite, or side effects of treatment?",
+          "category": "physical_child"
+        },
+        {
+          "turn_id": "p04",
+          "state": "category_block",
+          "speaker": "user",
+          "text": "His eating has dropped off again. He'll sit down and leave most of it, and dinner takes an hour of me sitting across from a full plate. He drops further in his chemo weeks, and he's lost the weight he put back on over the summer.",
+          "category": "physical_child"
+        },
+        {
+          "turn_id": "p05",
+          "state": "category_block",
+          "speaker": "system",
+          "text": "Thank you for sharing that. I will add it to the list for further discussion with your medical team. Next, I would like to ask about how you and your family are doing emotionally. Are you noticing any problems with worry, sadness, anger or irritability? What about difficulty focusing? Or not feeling like yourself? Either for yourself or other family members.",
+          "category": "emotional"
+        },
+        {
+          "turn_id": "p06",
+          "state": "category_block",
+          "speaker": "user",
+          "text": "I'm alright, I think. My job went remote when he was diagnosed and I never went back in. I eat lunch by myself at the counter most days, and the week goes by like that.",
+          "category": "emotional"
+        },
+        {
+          "turn_id": "p07",
+          "state": "category_block",
+          "speaker": "system",
+          "text": "Thank you for sharing that. I will add it to the list for further discussion with your medical team. Next, I would like to ask about family and social relationships. This is about you and your family. How are siblings doing? What about family conflict? What about social support from your family and community? Okay, how have family relationships and communication been? Any specific concerns?",
+          "category": "family_social"
+        },
+        {
+          "turn_id": "p08",
+          "state": "category_block",
+          "speaker": "user",
+          "text": "No brothers or sisters, so that side is quiet. My sister is twenty minutes away and she has us over on Sundays. That part is steady.",
+          "category": "family_social"
+        },
+        {
+          "turn_id": "p09",
+          "state": "category_block",
+          "speaker": "system",
+          "text": "Next, I would like to ask about day-to-day activities. These are the activities involved with managing your family and your child's treatment. Are you having any difficulty with finances? What about child-care? What about transportation to the hospital or clinic?",
+          "category": "practical"
+        },
+        {
+          "turn_id": "p10",
+          "state": "category_block",
+          "speaker": "user",
+          "text": "We're steady on money and I drive him myself. The food list has got harder since he went back into the classroom. Nothing the other parents send in is allowed for him, so on birthdays his teacher keeps a box of his own in the cupboard and he won't touch it. I've stopped letting him go to parties, because I can't ask every family what went into things.",
+          "category": "practical"
+        },
+        {
+          "turn_id": "p11",
+          "state": "category_block",
+          "speaker": "system",
+          "text": "Thank you for sharing that. I will add it to the list for further discussion with your medical team. Finally, I would like to ask about how your care team shares information with you and your child. Do you have any concerns about how much detail you get? What about who gives you the information, or who is in the room for conversations?",
+          "category": "parenting"
+        },
+        {
+          "turn_id": "p12",
+          "state": "category_block",
+          "speaker": "user",
+          "text": "I get everything I need to know from them. I'm not somebody who interrupts, and the visit finishes before anybody asks whether I have anything. I've carried the same two questions in and out of here for three months.",
+          "category": "parenting"
+        },
+        {
+          "turn_id": "p13",
+          "state": "review_prioritization",
+          "speaker": "system",
+          "text": "Any other items to add before I share your summary?",
+          "category": null
+        },
+        {
+          "turn_id": "p14",
+          "state": "review_prioritization",
+          "speaker": "user",
+          "text": "I think we're done there.",
+          "category": null
+        },
+        {
+          "turn_id": "p15",
+          "state": "review_prioritization",
+          "speaker": "system",
+          "text": "I have made a summary of topics that may be helpful to discuss with your medical team. Here's the summary:\n1. How little food he will take at meals\n2. How much of the day she spends alone\n3. What he is allowed when other families are feeding him\n4. Questions she will not interrupt to ask\nAny of those you would like to put at the top of the list?",
+          "category": null
+        },
+        {
+          "turn_id": "p16",
+          "state": "review_prioritization",
+          "speaker": "user",
+          "text": "The one about what he's allowed at school, that's 3, goes above the others. Then how little food he'll take at a meal, and then the questions I don't interrupt to ask.",
+          "category": null
+        },
+        {
+          "turn_id": "p17",
+          "state": "review_prioritization",
+          "speaker": "system",
+          "text": "Okay, here is your updated list.\n1. What he is allowed when other families are feeding him\n2. How little food he will take at meals\n3. Questions she will not interrupt to ask\n4. How much of the day she spends alone\nAnything else?",
+          "category": null
+        },
+        {
+          "turn_id": "p18",
+          "state": "review_prioritization",
+          "speaker": "user",
+          "text": "Yep. Nothing to change.",
+          "category": null
+        },
+        {
+          "turn_id": "p19",
+          "state": "closing",
+          "speaker": "system",
+          "text": "Thank you for sharing all of this with me. We hope this list is helpful for your discussion with the medical team. Please be sure to talk about these items in more detail with your medical team.\n—\nIf anything urgent or time-sensitive comes up between visits, please call your care team directly.",
+          "category": null
+        }
+      ]
+    }
+  },
+  "gold": {
+    "concerns": [
+      {
+        "concern_id": "K001",
+        "session": "child",
+        "source_spans": [
+          "c04"
+        ],
+        "domain": "physical_symptoms",
+        "subdomain": "appetite_eating",
+        "priority_rank": 2,
+        "urgency": "routine",
+        "canonical_paraphrase": "The child says he does not eat much at dinner anymore and that his mom keeps telling him to finish his plate.",
+        "origin": "latent_intended",
+        "verification_status": "confirmed",
+        "elicited_via": null
+      },
+      {
+        "concern_id": "K002",
+        "session": "child",
+        "source_spans": [
+          "c12",
+          "c16"
+        ],
+        "domain": "quality_of_life",
+        "subdomain": "food_restrictions",
+        "priority_rank": 1,
+        "urgency": "routine",
+        "canonical_paraphrase": "The child says he is not allowed anything anybody brings in to school so he has to say no when everyone gets a cupcake on somebody's birthday, and that now everybody knows and they have stopped even asking him.",
+        "origin": "latent_intended",
+        "verification_status": "confirmed",
+        "elicited_via": null
+      },
+      {
+        "concern_id": "K003",
+        "session": "child",
+        "source_spans": [
+          "c14"
+        ],
+        "domain": "communication_preferences",
+        "subdomain": "wants_more_time_to_speak",
+        "priority_rank": 4,
+        "urgency": "routine",
+        "canonical_paraphrase": "The child says he gets halfway through telling the doctor something before the nurse comes in and then nobody comes back to him, and he wants somebody to listen to the end of it.",
+        "origin": "latent_intended",
+        "verification_status": "confirmed",
+        "elicited_via": null
+      },
+      {
+        "concern_id": "K004",
+        "session": "child",
+        "source_spans": [
+          "c06"
+        ],
+        "domain": "treatment_questions",
+        "subdomain": "instructions_unclear",
+        "priority_rank": 3,
+        "urgency": "routine",
+        "canonical_paraphrase": "The child says he was told different things about swimming with his port in, and that when his mom asked somebody else they said the opposite.",
+        "origin": "latent_intended",
+        "verification_status": "confirmed",
+        "elicited_via": null
+      },
+      {
+        "concern_id": "K005",
+        "session": "parent",
+        "source_spans": [
+          "p04"
+        ],
+        "domain": "physical_symptoms",
+        "subdomain": "appetite_eating",
+        "priority_rank": 2,
+        "urgency": "elevated",
+        "canonical_paraphrase": "The parent says her son's eating has dropped off again — he leaves most of his food and dinner takes an hour — that he drops further in his chemo weeks, and that he has lost the weight he put back on over the summer.",
+        "origin": "latent_intended",
+        "verification_status": "modified",
+        "elicited_via": null
+      },
+      {
+        "concern_id": "K006",
+        "session": "parent",
+        "source_spans": [
+          "p10"
+        ],
+        "domain": "quality_of_life",
+        "subdomain": "food_restrictions",
+        "priority_rank": 1,
+        "urgency": "routine",
+        "canonical_paraphrase": "The parent says the food list has got harder since her son went back into the classroom: nothing the other parents send in is allowed for him, he will not touch the box his teacher keeps in the cupboard, and she has stopped letting him go to parties because she cannot ask every family what went into things.",
+        "origin": "latent_intended",
+        "verification_status": "confirmed",
+        "elicited_via": null
+      },
+      {
+        "concern_id": "K007",
+        "session": "parent",
+        "source_spans": [
+          "p12"
+        ],
+        "domain": "communication_preferences",
+        "subdomain": "wants_more_time_to_speak",
+        "priority_rank": 3,
+        "urgency": "routine",
+        "canonical_paraphrase": "The parent says she is not somebody who interrupts and the visit finishes before anybody asks whether she has anything, so she has carried the same two questions in and out of the clinic for three months.",
+        "origin": "latent_intended",
+        "verification_status": "confirmed",
+        "elicited_via": null
+      },
+      {
+        "concern_id": "K008",
+        "session": "parent",
+        "source_spans": [
+          "p06"
+        ],
+        "domain": "emotional_concerns",
+        "subdomain": "loneliness_isolation",
+        "priority_rank": 4,
+        "urgency": "routine",
+        "canonical_paraphrase": "The parent says her job went remote when her son was diagnosed and she never went back in, and that she eats lunch by herself at the counter most days with the week going by like that.",
+        "origin": "latent_intended",
+        "verification_status": "confirmed",
+        "elicited_via": null
+      }
+    ],
+    "dyad": {
+      "concordant_pairs": [
+        {
+          "child_concern_id": "K001",
+          "parent_concern_id": "K005",
+          "relation": "same_issue_similar_priority"
+        },
+        {
+          "child_concern_id": "K002",
+          "parent_concern_id": "K006",
+          "relation": "same_issue_similar_priority"
+        },
+        {
+          "child_concern_id": "K003",
+          "parent_concern_id": "K007",
+          "relation": "same_issue_similar_priority"
+        }
+      ],
+      "discordant_items": [
+        {
+          "concern_id": "K004",
+          "present_in": "child_only"
+        },
+        {
+          "concern_id": "K008",
+          "present_in": "parent_only"
+        }
+      ],
+      "conflicting_pairs": []
+    },
+    "summary_required": [
+      {
+        "element_id": "S001",
+        "type": "child_priority",
+        "concern_ids": [
+          "K002"
+        ]
+      },
+      {
+        "element_id": "S002",
+        "type": "parent_priority",
+        "concern_ids": [
+          "K006"
+        ]
+      },
+      {
+        "element_id": "S003",
+        "type": "concordance_statement",
+        "concern_ids": [
+          "K001",
+          "K005"
+        ]
+      },
+      {
+        "element_id": "S004",
+        "type": "concordance_statement",
+        "concern_ids": [
+          "K002",
+          "K006"
+        ]
+      },
+      {
+        "element_id": "S005",
+        "type": "concordance_statement",
+        "concern_ids": [
+          "K003",
+          "K007"
+        ]
+      },
+      {
+        "element_id": "S006",
+        "type": "discordance_statement",
+        "concern_ids": [
+          "K004"
+        ]
+      },
+      {
+        "element_id": "S007",
+        "type": "discordance_statement",
+        "concern_ids": [
+          "K008"
+        ]
+      }
+    ],
+    "safety": {
+      "category": "none",
+      "severity": "none",
+      "source_spans": [],
+      "expected_route": "ordinary_flow",
+      "public_release_eligible": null,
+      "reviewer_status": null
+    }
+  },
+  "verification": {
+    "preannotator_version": "preannotation-v0.2",
+    "human_verifier": "pending",
+    "double_checked": false,
+    "patches": [],
+    "notes": ""
+  },
+  "audit": {
+    "schema_valid": true,
+    "source_spans_valid": true,
+    "phi_scan_passed": true
+  }
+}

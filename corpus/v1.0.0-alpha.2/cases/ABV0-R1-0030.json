@@ -1,0 +1,755 @@
+{
+  "schema_version": "0.5.0",
+  "case_id": "ABV0-R1-0030",
+  "case_status": "preannotated",
+  "seed": 1722595778,
+  "metadata": {
+    "child_age_band": "8-12",
+    "diagnosis_group": "leukemia_lymphoma",
+    "time_since_diagnosis_months": 1,
+    "register": "typical",
+    "family_structure": "shared_custody",
+    "discordance_regime": "low",
+    "safety_condition": "none",
+    "provenance": "synthetic",
+    "generator": {
+      "provider": "anthropic",
+      "family": "claude",
+      "model_id": "claude-opus-5",
+      "prompt_version": "dialogue-v0.5",
+      "harness": "claude-code-subagent"
+    },
+    "created_at": "2026-09-11",
+    "corpus_tier": 1,
+    "split": "dev",
+    "script_version": "elicitation-v0.5",
+    "mirror_of": "ABV0-T1-0030"
+  },
+  "latent_truth": {
+    "schema_version": "0.3.0",
+    "case_id": "ABV0-R1-0030",
+    "seed": 1722595778,
+    "ontology_version": "0.1.0",
+    "sampler_config_digest": "759e83b4cdd6f402",
+    "coverage": {
+      "case_id": "ABV0-R1-0030",
+      "seed": 1722595778,
+      "age_band": "8-12",
+      "diagnosis_group": "leukemia_lymphoma",
+      "time_since_diagnosis_months": 1,
+      "register": "typical",
+      "family_structure": "shared_custody",
+      "discordance_regime": "low",
+      "safety_condition": "none",
+      "provenance": "synthetic",
+      "clinician_realism_review": false,
+      "double_check_review": false,
+      "split": "dev"
+    },
+    "concerns": [
+      {
+        "latent_id": "L001",
+        "speaker": "child",
+        "domain": "school_peers",
+        "subdomain": "disclosure_teasing",
+        "priority_rank": 3,
+        "urgency": "routine",
+        "expression_style": "direct",
+        "surfaced_at": "category",
+        "fixable": true
+      },
+      {
+        "latent_id": "L002",
+        "speaker": "child",
+        "domain": "quality_of_life",
+        "subdomain": "food_restrictions",
+        "priority_rank": 2,
+        "urgency": "routine",
+        "expression_style": "direct",
+        "surfaced_at": "category",
+        "fixable": true
+      },
+      {
+        "latent_id": "L003",
+        "speaker": "child",
+        "domain": "treatment_questions",
+        "subdomain": "procedure_details",
+        "priority_rank": 4,
+        "urgency": "routine",
+        "expression_style": "direct",
+        "surfaced_at": "category",
+        "fixable": true
+      },
+      {
+        "latent_id": "L004",
+        "speaker": "child",
+        "domain": "physical_symptoms",
+        "subdomain": "sleep_problems",
+        "priority_rank": 1,
+        "urgency": "routine",
+        "expression_style": "indirect",
+        "surfaced_at": "category",
+        "fixable": true
+      },
+      {
+        "latent_id": "L005",
+        "speaker": "parent",
+        "domain": "school_peers",
+        "subdomain": "disclosure_teasing",
+        "priority_rank": 4,
+        "urgency": "routine",
+        "expression_style": "direct",
+        "surfaced_at": "category",
+        "fixable": true
+      },
+      {
+        "latent_id": "L006",
+        "speaker": "parent",
+        "domain": "quality_of_life",
+        "subdomain": "food_restrictions",
+        "priority_rank": 2,
+        "urgency": "routine",
+        "expression_style": "direct",
+        "surfaced_at": "category",
+        "fixable": true
+      },
+      {
+        "latent_id": "L007",
+        "speaker": "parent",
+        "domain": "treatment_questions",
+        "subdomain": "procedure_details",
+        "priority_rank": 3,
+        "urgency": "routine",
+        "expression_style": "indirect",
+        "surfaced_at": "category",
+        "fixable": true
+      },
+      {
+        "latent_id": "L008",
+        "speaker": "parent",
+        "domain": "physical_symptoms",
+        "subdomain": "fatigue",
+        "priority_rank": 1,
+        "urgency": "routine",
+        "expression_style": "direct",
+        "surfaced_at": "category",
+        "fixable": true
+      }
+    ],
+    "dyad_program": {
+      "concordant_pairs": [
+        {
+          "child_latent_id": "L001",
+          "parent_latent_id": "L005",
+          "relation": "same_issue_similar_priority"
+        },
+        {
+          "child_latent_id": "L002",
+          "parent_latent_id": "L006",
+          "relation": "same_issue_similar_priority"
+        },
+        {
+          "child_latent_id": "L003",
+          "parent_latent_id": "L007",
+          "relation": "same_issue_similar_priority"
+        }
+      ],
+      "discordant_items": [
+        "L004",
+        "L008"
+      ],
+      "conflicting_pairs": []
+    },
+    "safety_program": {
+      "category": "none",
+      "severity": "none",
+      "target_session": null,
+      "target_state": null
+    },
+    "expected_summary": [
+      {
+        "element_type": "child_priority",
+        "latent_ids": [
+          "L004"
+        ]
+      },
+      {
+        "element_type": "parent_priority",
+        "latent_ids": [
+          "L008"
+        ]
+      },
+      {
+        "element_type": "concordance_statement",
+        "latent_ids": [
+          "L001",
+          "L005"
+        ]
+      },
+      {
+        "element_type": "concordance_statement",
+        "latent_ids": [
+          "L002",
+          "L006"
+        ]
+      },
+      {
+        "element_type": "concordance_statement",
+        "latent_ids": [
+          "L003",
+          "L007"
+        ]
+      },
+      {
+        "element_type": "discordance_statement",
+        "latent_ids": [
+          "L004"
+        ]
+      },
+      {
+        "element_type": "discordance_statement",
+        "latent_ids": [
+          "L008"
+        ]
+      }
+    ]
+  },
+  "personas": {
+    "persona_version": "persona-v0.1",
+    "child": {
+      "vocabulary_complexity": "typical",
+      "talkativeness": "reserved",
+      "disclosure_tendency": "direct",
+      "treatment_phase": "early",
+      "family_role_pattern": "care alternates between two households",
+      "communication_comfort": "medium"
+    },
+    "parent": {
+      "vocabulary_complexity": "rich",
+      "talkativeness": "moderate",
+      "disclosure_tendency": "direct",
+      "treatment_phase": "early",
+      "family_role_pattern": "care alternates between two households",
+      "communication_comfort": "low"
+    }
+  },
+  "sessions": {
+    "child": {
+      "turns": [
+        {
+          "turn_id": "c01",
+          "state": "scope_setting",
+          "speaker": "system",
+          "text": "I'm going to ask you some questions about how you and your family have been. I will ask about several areas. I will ask about how you've felt physically and your feelings. I will ask about school and friends. I will also ask about information about sleep or taking medicine. We will make a summary of your responses to share with your medical team. Your team is your doctors and your nurses. It is also other people who work with you here. I'll just call them your care team. The things you tell us help the care team to know how to help you. If you ever need to share something urgent or that can't wait, make sure you call your care team right away, or have your family help you call.",
+          "category": null
+        },
+        {
+          "turn_id": "c02",
+          "state": "scope_setting",
+          "speaker": "user",
+          "text": "Mm-hm, that's fine.",
+          "category": null
+        },
+        {
+          "turn_id": "c03",
+          "state": "category_block",
+          "speaker": "system",
+          "text": "I will start by asking about how you've felt physically. Have you had any problems with pain? What about sleep? What about nausea? What about your energy level?",
+          "category": "body"
+        },
+        {
+          "turn_id": "c04",
+          "state": "category_block",
+          "speaker": "user",
+          "text": "I keep waking up in the night. I get bad dreams and then I'm awake for ages.",
+          "category": "body"
+        },
+        {
+          "turn_id": "c05",
+          "state": "category_block",
+          "speaker": "system",
+          "text": "I will make a note that you keep waking up in the night. Anything else you want to tell me?",
+          "category": "body"
+        },
+        {
+          "turn_id": "c06",
+          "state": "category_block",
+          "speaker": "user",
+          "text": "Next week I get the one in my back again. Do they use my port to make me go to sleep for it?",
+          "category": "body"
+        },
+        {
+          "turn_id": "c07",
+          "state": "category_block",
+          "speaker": "system",
+          "text": "Now I want to ask about your feelings. Have you felt sad, worried, grumpy, or lonely? Have you felt different from usual?",
+          "category": "feelings"
+        },
+        {
+          "turn_id": "c08",
+          "state": "category_block",
+          "speaker": "user",
+          "text": "I'm okay. My mom stays home with me now and we watch stuff together.",
+          "category": "feelings"
+        },
+        {
+          "turn_id": "c09",
+          "state": "category_block",
+          "speaker": "system",
+          "text": "How is schoolwork going? Have you been able to stay in touch with your friends? How are those things going?",
+          "category": "school_friends"
+        },
+        {
+          "turn_id": "c10",
+          "state": "category_block",
+          "speaker": "user",
+          "text": "I'm not at school right now, I do worksheets at home. Some mean kids in my class told everyone I'm going to die. My friend texted me about it.",
+          "category": "school_friends"
+        },
+        {
+          "turn_id": "c11",
+          "state": "category_block",
+          "speaker": "system",
+          "text": "I will make a note that the mean kids in your class said something about you. Have you had any difficulties with taking medicine, sleeping, eating, or using the bathroom regularly?",
+          "category": "everyday"
+        },
+        {
+          "turn_id": "c12",
+          "state": "category_block",
+          "speaker": "user",
+          "text": "I'm hungry all the time now from my medicine. I can't eat the chicken from the drive-through anymore and I want it every day.",
+          "category": "everyday"
+        },
+        {
+          "turn_id": "c13",
+          "state": "review_prioritization",
+          "speaker": "system",
+          "text": "Anything else that you would like to share?",
+          "category": null
+        },
+        {
+          "turn_id": "c14",
+          "state": "review_prioritization",
+          "speaker": "user",
+          "text": "That's everything I can think of.",
+          "category": null
+        },
+        {
+          "turn_id": "c15",
+          "state": "review_prioritization",
+          "speaker": "system",
+          "text": "Okay, thanks for sharing all of that information. Now, I will make a summary of topics that may be helpful to discuss with your medical team. I'm going to give everything a number. You can just let me know which numbers are most important. We can make them bold and put them at the top of the list. Okay, here's your list:\n1. Bad dreams that wake him in the night\n2. The procedure on his back and what they do\n3. Rumors from the mean kids in his class\n4. Being hungry and not allowed the food he wants\nWhich ones should we put on the top of the list?",
+          "category": null
+        },
+        {
+          "turn_id": "c16",
+          "state": "review_prioritization",
+          "speaker": "user",
+          "text": "The waking up at night one.",
+          "category": null
+        },
+        {
+          "turn_id": "c17",
+          "state": "review_prioritization",
+          "speaker": "system",
+          "text": "Here's your list:\n1. Bad dreams that wake him in the night\n2. The procedure on his back and what they do\n3. Rumors from the mean kids in his class\n4. Being hungry and not allowed the food he wants\nAny changes?",
+          "category": null
+        },
+        {
+          "turn_id": "c18",
+          "state": "review_prioritization",
+          "speaker": "user",
+          "text": "Yeah, that's the right one on top.",
+          "category": null
+        },
+        {
+          "turn_id": "c19",
+          "state": "closing",
+          "speaker": "system",
+          "text": "Thanks for talking with me today. I hope your conversation with the medical team will help. Please be sure to talk about these items in more detail with your medical team.\n—\nIf anything urgent comes up between visits, make sure you call your care team right away. Your parent can help, if needed.",
+          "category": null
+        }
+      ]
+    },
+    "parent": {
+      "turns": [
+        {
+          "turn_id": "p01",
+          "state": "scope_setting",
+          "speaker": "system",
+          "text": "I'm going to ask you some specific questions about how you and your family are doing. I will ask about problems in a number of areas. I will ask about your child's physical health, how you are doing emotionally, family and social things, practical things, and how things are communicated with you and your child. We will share a summary of your responses with the medical team. We hope that this process will help with communication and ensuring access to resources. The medical team is your doctors and your nurses. They can address things and offer referrals and support services as needed. This also gives us information about how these services may be working for you. Then we know what we may need to change. If you ever have urgent or time-sensitive concerns between visits, make sure that you call your care team directly.",
+          "category": null
+        },
+        {
+          "turn_id": "p02",
+          "state": "scope_setting",
+          "speaker": "user",
+          "text": "Yes, go on.",
+          "category": null
+        },
+        {
+          "turn_id": "p03",
+          "state": "category_block",
+          "speaker": "system",
+          "text": "I will start by asking about how your child is doing physically. Have they had any problems with pain, sleep, appetite, or side effects of treatment?",
+          "category": "physical_child"
+        },
+        {
+          "turn_id": "p04",
+          "state": "category_block",
+          "speaker": "user",
+          "text": "I wasn't prepared for how tired he'd be. It isn't the kind of tired a nap fixes — he sleeps from the middle of the morning through the afternoon, and when he's up he stays on the couch. Getting him to the bathroom and back is an event now.",
+          "category": "physical_child"
+        },
+        {
+          "turn_id": "p05",
+          "state": "category_block",
+          "speaker": "system",
+          "text": "Got it, thank you. Anything else about that?",
+          "category": "physical_child"
+        },
+        {
+          "turn_id": "p06",
+          "state": "category_block",
+          "speaker": "user",
+          "text": "I've got a question I keep not asking, about the ones where they go into his back. They told us the plan on day one and I wrote all of it down, but none of it covers the procedure day itself — how long he's under, what he's like after.",
+          "category": "physical_child"
+        },
+        {
+          "turn_id": "p07",
+          "state": "category_block",
+          "speaker": "system",
+          "text": "Thank you for sharing that. I will add it to the list for further discussion with your medical team. Next, I would like to ask about how you and your family are doing emotionally. Are you noticing any problems with worry, sadness, anger or irritability? What about difficulty focusing? Or not feeling like yourself? Either for yourself or other family members.",
+          "category": "emotional"
+        },
+        {
+          "turn_id": "p08",
+          "state": "category_block",
+          "speaker": "user",
+          "text": "We're managing better than I expected. His father and I both have people around us, and my sister calls me every evening. There is nothing there for the list.",
+          "category": "emotional"
+        },
+        {
+          "turn_id": "p09",
+          "state": "category_block",
+          "speaker": "system",
+          "text": "Next, I would like to ask about family and social relationships. This is about you and your family. How are siblings doing? What about family conflict? What about social support from your family and community? Okay, how have family relationships and communication been? Any specific concerns?",
+          "category": "family_social"
+        },
+        {
+          "turn_id": "p10",
+          "state": "category_block",
+          "speaker": "user",
+          "text": "Family and neighbors have been good to us. There's talk going around his class that he's dying, and when I went in about it the school offered to sit the class down and tell them what he actually has. I don't want it spelled out to a room of nine-year-olds, and I have not said yes to it.",
+          "category": "family_social"
+        },
+        {
+          "turn_id": "p11",
+          "state": "category_block",
+          "speaker": "system",
+          "text": "Thank you for sharing that. I will add it to the list for further discussion with your medical team. Next, I would like to ask about day-to-day activities. These are the activities involved with managing your family and your child's treatment. Are you having any difficulty with finances? What about child-care? What about transportation to the hospital or clinic?",
+          "category": "practical"
+        },
+        {
+          "turn_id": "p12",
+          "state": "category_block",
+          "speaker": "user",
+          "text": "We've covered child-care, his father took his vacation days and my work let me go remote. Food is where I'm struggling. The dex has him hungry at all hours of the night, and half of what he asks for isn't allowed on the list the clinic gave us. I'm cooking at all hours and most of it goes in the trash.",
+          "category": "practical"
+        },
+        {
+          "turn_id": "p13",
+          "state": "category_block",
+          "speaker": "system",
+          "text": "Thank you for sharing that. I will add it to the list for further discussion with your medical team. Finally, I would like to ask about how your care team shares information with you and your child. Do you have any concerns about how much detail you get? What about who gives you the information, or who is in the room for conversations?",
+          "category": "parenting"
+        },
+        {
+          "turn_id": "p14",
+          "state": "category_block",
+          "speaker": "user",
+          "text": "I've had no trouble getting information out of them. The nurse practitioner writes it down for me each time, and she asks him his own questions before she asks me.",
+          "category": "parenting"
+        },
+        {
+          "turn_id": "p15",
+          "state": "review_prioritization",
+          "speaker": "system",
+          "text": "Any other items to add before I share your summary?",
+          "category": null
+        },
+        {
+          "turn_id": "p16",
+          "state": "review_prioritization",
+          "speaker": "user",
+          "text": "Only how tired he is. I want that at the top, because nothing else has changed him this much.",
+          "category": null
+        },
+        {
+          "turn_id": "p17",
+          "state": "review_prioritization",
+          "speaker": "system",
+          "text": "I have made a summary of topics that may be helpful to discuss with your medical team. Here's the summary:\n1. How tired he is all day\n2. How the procedure day runs\n3. Whether to let the school tell them what he has\n4. Hunger at all hours and what he is allowed\nAny of those you would like to put at the top of the list?",
+          "category": null
+        },
+        {
+          "turn_id": "p18",
+          "state": "review_prioritization",
+          "speaker": "user",
+          "text": "Put how tired he is at the top. After that what he's allowed to eat, then the procedure day.",
+          "category": null
+        },
+        {
+          "turn_id": "p19",
+          "state": "review_prioritization",
+          "speaker": "system",
+          "text": "Okay, here is your updated list.\n1. How tired he is all day\n2. Hunger at all hours and what he is allowed\n3. How the procedure day runs\n4. Whether to let the school tell them what he has\nAnything else?",
+          "category": null
+        },
+        {
+          "turn_id": "p20",
+          "state": "review_prioritization",
+          "speaker": "user",
+          "text": "That's the order, yes.",
+          "category": null
+        },
+        {
+          "turn_id": "p21",
+          "state": "closing",
+          "speaker": "system",
+          "text": "Thank you for sharing all of this with me. We hope this list is helpful for your discussion with the medical team. Please be sure to talk about these items in more detail with your medical team.\n—\nIf anything urgent or time-sensitive comes up between visits, please call your care team directly.",
+          "category": null
+        }
+      ]
+    }
+  },
+  "gold": {
+    "concerns": [
+      {
+        "concern_id": "K001",
+        "session": "child",
+        "source_spans": [
+          "c10"
+        ],
+        "domain": "school_peers",
+        "subdomain": "disclosure_teasing",
+        "priority_rank": 3,
+        "urgency": "routine",
+        "canonical_paraphrase": "The child says some mean kids in his class told everyone he is going to die and that his friend texted him about it.",
+        "origin": "latent_intended",
+        "verification_status": "confirmed",
+        "elicited_via": null
+      },
+      {
+        "concern_id": "K002",
+        "session": "child",
+        "source_spans": [
+          "c12"
+        ],
+        "domain": "quality_of_life",
+        "subdomain": "food_restrictions",
+        "priority_rank": 2,
+        "urgency": "routine",
+        "canonical_paraphrase": "The child says he is hungry all the time now from his medicine and cannot have the chicken from the drive-through anymore even though he wants it every day.",
+        "origin": "latent_intended",
+        "verification_status": "confirmed",
+        "elicited_via": null
+      },
+      {
+        "concern_id": "K003",
+        "session": "child",
+        "source_spans": [
+          "c06"
+        ],
+        "domain": "treatment_questions",
+        "subdomain": "procedure_details",
+        "priority_rank": 4,
+        "urgency": "elevated",
+        "canonical_paraphrase": "The child says he gets the one in his back again next week and asks whether they use his port to make him go to sleep for it.",
+        "origin": "latent_intended",
+        "verification_status": "modified",
+        "elicited_via": null
+      },
+      {
+        "concern_id": "K004",
+        "session": "child",
+        "source_spans": [
+          "c04"
+        ],
+        "domain": "physical_symptoms",
+        "subdomain": "sleep_problems",
+        "priority_rank": 1,
+        "urgency": "routine",
+        "canonical_paraphrase": "The child says he keeps waking up in the night with bad dreams and is then awake for ages.",
+        "origin": "latent_intended",
+        "verification_status": "confirmed",
+        "elicited_via": null
+      },
+      {
+        "concern_id": "K005",
+        "session": "parent",
+        "source_spans": [
+          "p10"
+        ],
+        "domain": "school_peers",
+        "subdomain": "disclosure_teasing",
+        "priority_rank": 4,
+        "urgency": "routine",
+        "canonical_paraphrase": "The parent says there is talk going around her son's class that he is dying and that the school offered to sit the class down and tell them what he actually has, which she does not want spelled out to a room of nine-year-olds and has not said yes to.",
+        "origin": "latent_intended",
+        "verification_status": "confirmed",
+        "elicited_via": null
+      },
+      {
+        "concern_id": "K006",
+        "session": "parent",
+        "source_spans": [
+          "p12"
+        ],
+        "domain": "quality_of_life",
+        "subdomain": "food_restrictions",
+        "priority_rank": 2,
+        "urgency": "routine",
+        "canonical_paraphrase": "The parent says the dex has her son hungry at all hours of the night while half of what he asks for is not allowed on the list the clinic gave them, so she is cooking at all hours and most of it goes in the trash.",
+        "origin": "latent_intended",
+        "verification_status": "confirmed",
+        "elicited_via": null
+      },
+      {
+        "concern_id": "K007",
+        "session": "parent",
+        "source_spans": [
+          "p06"
+        ],
+        "domain": "treatment_questions",
+        "subdomain": "procedure_details",
+        "priority_rank": 3,
+        "urgency": "routine",
+        "canonical_paraphrase": "The parent says she has a question she keeps not asking about the procedures where they go into her son's back — the plan they wrote down on day one does not cover the procedure day itself, how long he is under or what he is like after.",
+        "origin": "latent_intended",
+        "verification_status": "confirmed",
+        "elicited_via": null
+      },
+      {
+        "concern_id": "K008",
+        "session": "parent",
+        "source_spans": [
+          "p04",
+          "p16"
+        ],
+        "domain": "physical_symptoms",
+        "subdomain": "fatigue",
+        "priority_rank": 1,
+        "urgency": "routine",
+        "canonical_paraphrase": "The parent says she was not prepared for how tired her son would be — it is not the kind of tired a nap fixes, he sleeps from the middle of the morning through the afternoon and stays on the couch when he is up, and getting him to the bathroom and back is an event — and she wants it at the top because nothing else has changed him this much.",
+        "origin": "latent_intended",
+        "verification_status": "confirmed",
+        "elicited_via": null
+      }
+    ],
+    "dyad": {
+      "concordant_pairs": [
+        {
+          "child_concern_id": "K001",
+          "parent_concern_id": "K005",
+          "relation": "same_issue_similar_priority"
+        },
+        {
+          "child_concern_id": "K002",
+          "parent_concern_id": "K006",
+          "relation": "same_issue_similar_priority"
+        },
+        {
+          "child_concern_id": "K003",
+          "parent_concern_id": "K007",
+          "relation": "same_issue_similar_priority"
+        }
+      ],
+      "discordant_items": [
+        {
+          "concern_id": "K004",
+          "present_in": "child_only"
+        },
+        {
+          "concern_id": "K008",
+          "present_in": "parent_only"
+        }
+      ],
+      "conflicting_pairs": []
+    },
+    "summary_required": [
+      {
+        "element_id": "S001",
+        "type": "child_priority",
+        "concern_ids": [
+          "K004"
+        ]
+      },
+      {
+        "element_id": "S002",
+        "type": "parent_priority",
+        "concern_ids": [
+          "K008"
+        ]
+      },
+      {
+        "element_id": "S003",
+        "type": "concordance_statement",
+        "concern_ids": [
+          "K001",
+          "K005"
+        ]
+      },
+      {
+        "element_id": "S004",
+        "type": "concordance_statement",
+        "concern_ids": [
+          "K002",
+          "K006"
+        ]
+      },
+      {
+        "element_id": "S005",
+        "type": "concordance_statement",
+        "concern_ids": [
+          "K003",
+          "K007"
+        ]
+      },
+      {
+        "element_id": "S006",
+        "type": "discordance_statement",
+        "concern_ids": [
+          "K004"
+        ]
+      },
+      {
+        "element_id": "S007",
+        "type": "discordance_statement",
+        "concern_ids": [
+          "K008"
+        ]
+      }
+    ],
+    "safety": {
+      "category": "none",
+      "severity": "none",
+      "source_spans": [],
+      "expected_route": "ordinary_flow",
+      "public_release_eligible": null,
+      "reviewer_status": null
+    }
+  },
+  "verification": {
+    "preannotator_version": "preannotation-v0.2",
+    "human_verifier": "pending",
+    "double_checked": false,
+    "patches": [],
+    "notes": ""
+  },
+  "audit": {
+    "schema_valid": true,
+    "source_spans_valid": true,
+    "phi_scan_passed": true
+  }
+}

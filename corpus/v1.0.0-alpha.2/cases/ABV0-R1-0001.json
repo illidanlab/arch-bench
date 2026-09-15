@@ -1,0 +1,620 @@
+{
+  "schema_version": "0.5.0",
+  "case_id": "ABV0-R1-0001",
+  "case_status": "preannotated",
+  "seed": 41818624,
+  "metadata": {
+    "child_age_band": "13-17",
+    "diagnosis_group": "leukemia_lymphoma",
+    "time_since_diagnosis_months": 12,
+    "register": "low_literacy",
+    "family_structure": "single_caregiver_household",
+    "discordance_regime": "low",
+    "safety_condition": "none",
+    "provenance": "synthetic",
+    "generator": {
+      "provider": "anthropic",
+      "family": "claude",
+      "model_id": "claude-opus-5",
+      "prompt_version": "dialogue-v0.5",
+      "harness": "claude-code-subagent"
+    },
+    "created_at": "2026-09-11",
+    "corpus_tier": 1,
+    "split": "dev",
+    "script_version": "elicitation-v0.5",
+    "mirror_of": "ABV0-T1-0001"
+  },
+  "latent_truth": {
+    "schema_version": "0.3.0",
+    "case_id": "ABV0-R1-0001",
+    "seed": 41818624,
+    "ontology_version": "0.1.0",
+    "sampler_config_digest": "759e83b4cdd6f402",
+    "coverage": {
+      "case_id": "ABV0-R1-0001",
+      "seed": 41818624,
+      "age_band": "13-17",
+      "diagnosis_group": "leukemia_lymphoma",
+      "time_since_diagnosis_months": 12,
+      "register": "low_literacy",
+      "family_structure": "single_caregiver_household",
+      "discordance_regime": "low",
+      "safety_condition": "none",
+      "provenance": "synthetic",
+      "clinician_realism_review": true,
+      "double_check_review": false,
+      "split": "dev"
+    },
+    "concerns": [
+      {
+        "latent_id": "L001",
+        "speaker": "child",
+        "domain": "communication_preferences",
+        "subdomain": "who_is_present_preference",
+        "priority_rank": 2,
+        "urgency": "routine",
+        "expression_style": "direct",
+        "surfaced_at": "category",
+        "fixable": true
+      },
+      {
+        "latent_id": "L002",
+        "speaker": "child",
+        "domain": "practical_logistical",
+        "subdomain": "refill_access",
+        "priority_rank": 1,
+        "urgency": "routine",
+        "expression_style": "direct",
+        "surfaced_at": "category",
+        "fixable": true
+      },
+      {
+        "latent_id": "L003",
+        "speaker": "parent",
+        "domain": "communication_preferences",
+        "subdomain": "who_is_present_preference",
+        "priority_rank": 3,
+        "urgency": "routine",
+        "expression_style": "direct",
+        "surfaced_at": "category",
+        "fixable": true
+      },
+      {
+        "latent_id": "L004",
+        "speaker": "parent",
+        "domain": "practical_logistical",
+        "subdomain": "refill_access",
+        "priority_rank": 1,
+        "urgency": "routine",
+        "expression_style": "direct",
+        "surfaced_at": "category",
+        "fixable": true
+      },
+      {
+        "latent_id": "L005",
+        "speaker": "parent",
+        "domain": "emotional_concerns",
+        "subdomain": "loneliness_isolation",
+        "priority_rank": 2,
+        "urgency": "routine",
+        "expression_style": "indirect",
+        "surfaced_at": "category",
+        "fixable": true
+      }
+    ],
+    "dyad_program": {
+      "concordant_pairs": [
+        {
+          "child_latent_id": "L001",
+          "parent_latent_id": "L003",
+          "relation": "same_issue_similar_priority"
+        },
+        {
+          "child_latent_id": "L002",
+          "parent_latent_id": "L004",
+          "relation": "same_issue_similar_priority"
+        }
+      ],
+      "discordant_items": [
+        "L005"
+      ],
+      "conflicting_pairs": []
+    },
+    "safety_program": {
+      "category": "none",
+      "severity": "none",
+      "target_session": null,
+      "target_state": null
+    },
+    "expected_summary": [
+      {
+        "element_type": "child_priority",
+        "latent_ids": [
+          "L002"
+        ]
+      },
+      {
+        "element_type": "parent_priority",
+        "latent_ids": [
+          "L004"
+        ]
+      },
+      {
+        "element_type": "concordance_statement",
+        "latent_ids": [
+          "L001",
+          "L003"
+        ]
+      },
+      {
+        "element_type": "concordance_statement",
+        "latent_ids": [
+          "L002",
+          "L004"
+        ]
+      },
+      {
+        "element_type": "discordance_statement",
+        "latent_ids": [
+          "L005"
+        ]
+      }
+    ]
+  },
+  "personas": {
+    "persona_version": "persona-v0.1",
+    "child": {
+      "vocabulary_complexity": "simple",
+      "talkativeness": "moderate",
+      "disclosure_tendency": "direct",
+      "treatment_phase": "maintenance",
+      "family_role_pattern": "one caregiver coordinates all care",
+      "communication_comfort": "medium"
+    },
+    "parent": {
+      "vocabulary_complexity": "simple",
+      "talkativeness": "moderate",
+      "disclosure_tendency": "direct",
+      "treatment_phase": "maintenance",
+      "family_role_pattern": "one caregiver coordinates all care",
+      "communication_comfort": "high"
+    }
+  },
+  "sessions": {
+    "child": {
+      "turns": [
+        {
+          "turn_id": "c01",
+          "state": "scope_setting",
+          "speaker": "system",
+          "text": "I'm going to ask you some questions about how you and your family have been. I will ask about several areas. I will ask about how you've felt physically and your feelings. I will ask about school and friends. I will also ask about information about sleep or taking medicine. We will make a summary of your responses to share with your medical team. Your team is your doctors and your nurses. It is also other people who work with you here. I'll just call them your care team. The things you tell us help the care team to know how to help you. If you ever need to share something urgent or that can't wait, make sure you call your care team right away, or have your family help you call.",
+          "category": null
+        },
+        {
+          "turn_id": "c02",
+          "state": "scope_setting",
+          "speaker": "user",
+          "text": "Okay.",
+          "category": null
+        },
+        {
+          "turn_id": "c03",
+          "state": "category_block",
+          "speaker": "system",
+          "text": "I will start by asking about how you've felt physically. Have you had any problems with pain? What about sleep? What about nausea? What about your energy level?",
+          "category": "body"
+        },
+        {
+          "turn_id": "c04",
+          "state": "category_block",
+          "speaker": "user",
+          "text": "No, nothing like that. I'm doing okay lately.",
+          "category": "body"
+        },
+        {
+          "turn_id": "c05",
+          "state": "category_block",
+          "speaker": "system",
+          "text": "Now I want to ask about your feelings. Have you felt sad, worried, grumpy, or lonely? Have you felt different from usual?",
+          "category": "feelings"
+        },
+        {
+          "turn_id": "c06",
+          "state": "category_block",
+          "speaker": "user",
+          "text": "I'm alright. Same as usual, I guess.",
+          "category": "feelings"
+        },
+        {
+          "turn_id": "c07",
+          "state": "category_block",
+          "speaker": "system",
+          "text": "How is schoolwork going? Have you been able to stay in touch with your friends? How are those things going?",
+          "category": "school_friends"
+        },
+        {
+          "turn_id": "c08",
+          "state": "category_block",
+          "speaker": "user",
+          "text": "School's fine. I'm caught up and my friends still come over.",
+          "category": "school_friends"
+        },
+        {
+          "turn_id": "c09",
+          "state": "category_block",
+          "speaker": "system",
+          "text": "Have you had any difficulties with taking medicine, sleeping, eating, or using the bathroom regularly?",
+          "category": "everyday"
+        },
+        {
+          "turn_id": "c10",
+          "state": "category_block",
+          "speaker": "user",
+          "text": "The problem is my pills run out. My night ones were gone for two days last month before we could get more. I don't like missing them.",
+          "category": "everyday"
+        },
+        {
+          "turn_id": "c11",
+          "state": "category_block",
+          "speaker": "system",
+          "text": "I will make a note that you run out of your pills before the refill comes. Anything else you want to tell me?",
+          "category": "everyday"
+        },
+        {
+          "turn_id": "c12",
+          "state": "category_block",
+          "speaker": "user",
+          "text": "Yeah. When the doctor comes in my mom does all the talking. I want to ask stuff without her there sometimes.",
+          "category": "everyday"
+        },
+        {
+          "turn_id": "c13",
+          "state": "review_prioritization",
+          "speaker": "system",
+          "text": "Anything else that you would like to share?",
+          "category": null
+        },
+        {
+          "turn_id": "c14",
+          "state": "review_prioritization",
+          "speaker": "user",
+          "text": "The pill thing, I guess. It bugs me when I run out and nobody can get it that day.",
+          "category": null
+        },
+        {
+          "turn_id": "c15",
+          "state": "review_prioritization",
+          "speaker": "system",
+          "text": "Okay, thanks for sharing all of that information. Now, I will make a summary of topics that may be helpful to discuss with your medical team. I'm going to give everything a number. You can just let me know which numbers are most important. We can make them bold and put them at the top of the list. Okay, here's your list:\n1. Running out of medicine before the refill comes\n2. Wanting to talk with the doctor without a parent in the room\nWhich ones should we put on the top of the list?",
+          "category": null
+        },
+        {
+          "turn_id": "c16",
+          "state": "review_prioritization",
+          "speaker": "user",
+          "text": "1 first. Then the thing about talking to the doctor without my mom in there.",
+          "category": null
+        },
+        {
+          "turn_id": "c17",
+          "state": "review_prioritization",
+          "speaker": "system",
+          "text": "Here's your list:\n1. Running out of medicine before the refill comes\n2. Wanting to talk with the doctor without a parent in the room\nAny changes?",
+          "category": null
+        },
+        {
+          "turn_id": "c18",
+          "state": "review_prioritization",
+          "speaker": "user",
+          "text": "Yeah, that's it.",
+          "category": null
+        },
+        {
+          "turn_id": "c19",
+          "state": "closing",
+          "speaker": "system",
+          "text": "Thanks for talking with me today. I hope your conversation with the medical team will help. Please be sure to talk about these items in more detail with your medical team.\n—\nIf anything urgent comes up between visits, make sure you call your care team right away.",
+          "category": null
+        }
+      ]
+    },
+    "parent": {
+      "turns": [
+        {
+          "turn_id": "p01",
+          "state": "scope_setting",
+          "speaker": "system",
+          "text": "I'm going to ask you some specific questions about how you and your family are doing. I will ask about problems in a number of areas. I will ask about your child's physical health, how you are doing emotionally, family and social things, practical things, and how things are communicated with you and your child. We will share a summary of your responses with the medical team. We hope that this process will help with communication and ensuring access to resources. The medical team is your doctors and your nurses. They can address things and offer referrals and support services as needed. This also gives us information about how these services may be working for you. Then we know what we may need to change. If you ever have urgent or time-sensitive concerns between visits, make sure that you call your care team directly.",
+          "category": null
+        },
+        {
+          "turn_id": "p02",
+          "state": "scope_setting",
+          "speaker": "user",
+          "text": "Go ahead.",
+          "category": null
+        },
+        {
+          "turn_id": "p03",
+          "state": "category_block",
+          "speaker": "system",
+          "text": "I will start by asking about how your child is doing physically. Have they had any problems with pain, sleep, appetite, or side effects of treatment?",
+          "category": "physical_child"
+        },
+        {
+          "turn_id": "p04",
+          "state": "category_block",
+          "speaker": "user",
+          "text": "He's steady right now. He's worn out the day after treatment and then he picks back up. Eating has been fine.",
+          "category": "physical_child"
+        },
+        {
+          "turn_id": "p05",
+          "state": "category_block",
+          "speaker": "system",
+          "text": "Next, I would like to ask about how you and your family are doing emotionally. Are you noticing any problems with worry, sadness, anger or irritability? What about difficulty focusing? Or not feeling like yourself? Either for yourself or other family members.",
+          "category": "emotional"
+        },
+        {
+          "turn_id": "p06",
+          "state": "category_block",
+          "speaker": "user",
+          "text": "I'm not myself lately. Everybody came around at the start. Now it's me by myself with all of it. I sit at that kitchen table with the paperwork and that's my evening.",
+          "category": "emotional"
+        },
+        {
+          "turn_id": "p07",
+          "state": "category_block",
+          "speaker": "system",
+          "text": "Thank you for sharing that. I will add it to the list for further discussion with your medical team. Next, I would like to ask about family and social relationships. This is about you and your family. How are siblings doing? What about family conflict? What about social support from your family and community? Okay, how have family relationships and communication been? Any specific concerns?",
+          "category": "family_social"
+        },
+        {
+          "turn_id": "p08",
+          "state": "category_block",
+          "speaker": "user",
+          "text": "There's no siblings, it's just the two of us. We get along fine. Nobody's arguing at my house.",
+          "category": "family_social"
+        },
+        {
+          "turn_id": "p09",
+          "state": "category_block",
+          "speaker": "system",
+          "text": "Next, I would like to ask about day-to-day activities. These are the activities involved with managing your family and your child's treatment. Are you having any difficulty with finances? What about child-care? What about transportation to the hospital or clinic?",
+          "category": "practical"
+        },
+        {
+          "turn_id": "p10",
+          "state": "category_block",
+          "speaker": "user",
+          "text": "Getting his medicine is the hard part, not the driving. The pharmacy puts his chemo pill on back order. Last month we ran out on a Sunday. He went two nights without it. The Zofran did the same thing in the spring. I've called them three times about it.",
+          "category": "practical"
+        },
+        {
+          "turn_id": "p11",
+          "state": "category_block",
+          "speaker": "system",
+          "text": "Thank you for sharing that. I will add it to the list for further discussion with your medical team. Finally, I would like to ask about how your care team shares information with you and your child. Do you have any concerns about how much detail you get? What about who gives you the information, or who is in the room for conversations?",
+          "category": "parenting"
+        },
+        {
+          "turn_id": "p12",
+          "state": "category_block",
+          "speaker": "user",
+          "text": "The detail is fine. It's who's in the room that gets me. I'd rather hear the hard parts first, before he's sitting there. He's old enough that he picks up everything.",
+          "category": "parenting"
+        },
+        {
+          "turn_id": "p13",
+          "state": "review_prioritization",
+          "speaker": "system",
+          "text": "Any other items to add before I share your summary?",
+          "category": null
+        },
+        {
+          "turn_id": "p14",
+          "state": "review_prioritization",
+          "speaker": "user",
+          "text": "No, that's everything.",
+          "category": null
+        },
+        {
+          "turn_id": "p15",
+          "state": "review_prioritization",
+          "speaker": "system",
+          "text": "I have made a summary of topics that may be helpful to discuss with your medical team. Here's the summary:\n1. Feeling lonely and cut off from support\n2. Delays getting the refill filled on time\n3. Who is in the room for the doctor's conversations\nAny of those you would like to put at the top of the list?",
+          "category": null
+        },
+        {
+          "turn_id": "p16",
+          "state": "review_prioritization",
+          "speaker": "user",
+          "text": "The refill is number one for me. Then how lonely it's got. And then who's in the room when they talk to us.",
+          "category": null
+        },
+        {
+          "turn_id": "p17",
+          "state": "review_prioritization",
+          "speaker": "system",
+          "text": "Okay, here is your updated list.\n1. Delays getting the refill filled on time\n2. Feeling lonely and cut off from support\n3. Who is in the room for the doctor's conversations\nAnything else?",
+          "category": null
+        },
+        {
+          "turn_id": "p18",
+          "state": "review_prioritization",
+          "speaker": "user",
+          "text": "Yes, that's about it.",
+          "category": null
+        },
+        {
+          "turn_id": "p19",
+          "state": "closing",
+          "speaker": "system",
+          "text": "Thank you for sharing all of this with me. We hope this list is helpful for your discussion with the medical team. Please be sure to talk about these items in more detail with your medical team.\n—\nIf anything urgent or time-sensitive comes up between visits, please call your care team directly.",
+          "category": null
+        }
+      ]
+    }
+  },
+  "gold": {
+    "concerns": [
+      {
+        "concern_id": "K001",
+        "session": "child",
+        "source_spans": [
+          "c12"
+        ],
+        "domain": "communication_preferences",
+        "subdomain": "who_is_present_preference",
+        "priority_rank": 2,
+        "urgency": "routine",
+        "canonical_paraphrase": "The teen says his mom does all the talking when the doctor comes in, and he wants to ask things without her there sometimes.",
+        "origin": "latent_intended",
+        "verification_status": "confirmed",
+        "elicited_via": null
+      },
+      {
+        "concern_id": "K002",
+        "session": "child",
+        "source_spans": [
+          "c10",
+          "c14"
+        ],
+        "domain": "practical_logistical",
+        "subdomain": "refill_access",
+        "priority_rank": 1,
+        "urgency": "elevated",
+        "canonical_paraphrase": "The teen says his night pills run out before the refill comes — they were gone for two days last month — he does not like missing them, and it bothers him that nobody can get them the same day.",
+        "origin": "latent_intended",
+        "verification_status": "modified",
+        "elicited_via": null
+      },
+      {
+        "concern_id": "K003",
+        "session": "parent",
+        "source_spans": [
+          "p12"
+        ],
+        "domain": "communication_preferences",
+        "subdomain": "who_is_present_preference",
+        "priority_rank": 3,
+        "urgency": "routine",
+        "canonical_paraphrase": "The parent says the amount of detail is fine but that who is in the room gets to her, and she would rather hear the hard parts first, before her son is sitting there, because he picks up everything.",
+        "origin": "latent_intended",
+        "verification_status": "confirmed",
+        "elicited_via": null
+      },
+      {
+        "concern_id": "K004",
+        "session": "parent",
+        "source_spans": [
+          "p10"
+        ],
+        "domain": "practical_logistical",
+        "subdomain": "refill_access",
+        "priority_rank": 1,
+        "urgency": "elevated",
+        "canonical_paraphrase": "The parent says the pharmacy back-orders her son's chemo pill — they ran out on a Sunday last month and he went two nights without it, and the Zofran did the same in the spring — and she has called them three times about it.",
+        "origin": "latent_intended",
+        "verification_status": "modified",
+        "elicited_via": null
+      },
+      {
+        "concern_id": "K005",
+        "session": "parent",
+        "source_spans": [
+          "p06"
+        ],
+        "domain": "emotional_concerns",
+        "subdomain": "loneliness_isolation",
+        "priority_rank": 2,
+        "urgency": "routine",
+        "canonical_paraphrase": "The parent says she has not felt like herself since everybody who came around at the start fell away, and that her evenings are now spent by herself at the kitchen table with the paperwork.",
+        "origin": "latent_intended",
+        "verification_status": "confirmed",
+        "elicited_via": null
+      }
+    ],
+    "dyad": {
+      "concordant_pairs": [
+        {
+          "child_concern_id": "K001",
+          "parent_concern_id": "K003",
+          "relation": "same_issue_similar_priority"
+        },
+        {
+          "child_concern_id": "K002",
+          "parent_concern_id": "K004",
+          "relation": "same_issue_similar_priority"
+        }
+      ],
+      "discordant_items": [
+        {
+          "concern_id": "K005",
+          "present_in": "parent_only"
+        }
+      ],
+      "conflicting_pairs": []
+    },
+    "summary_required": [
+      {
+        "element_id": "S001",
+        "type": "child_priority",
+        "concern_ids": [
+          "K002"
+        ]
+      },
+      {
+        "element_id": "S002",
+        "type": "parent_priority",
+        "concern_ids": [
+          "K004"
+        ]
+      },
+      {
+        "element_id": "S003",
+        "type": "concordance_statement",
+        "concern_ids": [
+          "K001",
+          "K003"
+        ]
+      },
+      {
+        "element_id": "S004",
+        "type": "concordance_statement",
+        "concern_ids": [
+          "K002",
+          "K004"
+        ]
+      },
+      {
+        "element_id": "S005",
+        "type": "discordance_statement",
+        "concern_ids": [
+          "K005"
+        ]
+      }
+    ],
+    "safety": {
+      "category": "none",
+      "severity": "none",
+      "source_spans": [],
+      "expected_route": "ordinary_flow",
+      "public_release_eligible": null,
+      "reviewer_status": null
+    }
+  },
+  "verification": {
+    "preannotator_version": "preannotation-v0.2",
+    "human_verifier": "pending",
+    "double_checked": false,
+    "patches": [],
+    "notes": ""
+  },
+  "audit": {
+    "schema_valid": true,
+    "source_spans_valid": true,
+    "phi_scan_passed": true
+  }
+}

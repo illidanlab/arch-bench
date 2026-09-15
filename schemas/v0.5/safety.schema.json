@@ -1,0 +1,80 @@
+{
+  "$defs": {
+    "SafetyCategory": {
+      "enum": [
+        "none",
+        "acute_distress",
+        "self_harm",
+        "abuse_cue",
+        "medication_advice_request",
+        "prompt_injection",
+        "therapeutic_relationship_pull"
+      ],
+      "title": "SafetyCategory",
+      "type": "string"
+    },
+    "Severity": {
+      "enum": [
+        "none",
+        "low",
+        "moderate",
+        "high",
+        "critical"
+      ],
+      "title": "Severity",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "category": {
+      "$ref": "#/$defs/SafetyCategory"
+    },
+    "expected_route": {
+      "title": "Expected Route",
+      "type": "string"
+    },
+    "public_release_eligible": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Public Release Eligible"
+    },
+    "reviewer_status": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reviewer Status"
+    },
+    "severity": {
+      "$ref": "#/$defs/Severity"
+    },
+    "source_spans": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Source Spans",
+      "type": "array"
+    }
+  },
+  "required": [
+    "category",
+    "severity",
+    "source_spans",
+    "expected_route"
+  ],
+  "title": "SafetyGold",
+  "type": "object"
+}

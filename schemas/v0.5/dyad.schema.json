@@ -1,0 +1,92 @@
+{
+  "$defs": {
+    "DyadRelation": {
+      "enum": [
+        "same_issue_similar_priority",
+        "same_issue_different_priority"
+      ],
+      "title": "DyadRelation",
+      "type": "string"
+    },
+    "GoldConcordantPair": {
+      "additionalProperties": false,
+      "properties": {
+        "child_concern_id": {
+          "title": "Child Concern Id",
+          "type": "string"
+        },
+        "parent_concern_id": {
+          "title": "Parent Concern Id",
+          "type": "string"
+        },
+        "relation": {
+          "$ref": "#/$defs/DyadRelation"
+        }
+      },
+      "required": [
+        "child_concern_id",
+        "parent_concern_id",
+        "relation"
+      ],
+      "title": "GoldConcordantPair",
+      "type": "object"
+    },
+    "GoldDiscordantItem": {
+      "additionalProperties": false,
+      "properties": {
+        "concern_id": {
+          "title": "Concern Id",
+          "type": "string"
+        },
+        "present_in": {
+          "$ref": "#/$defs/PresentIn"
+        }
+      },
+      "required": [
+        "concern_id",
+        "present_in"
+      ],
+      "title": "GoldDiscordantItem",
+      "type": "object"
+    },
+    "PresentIn": {
+      "enum": [
+        "child_only",
+        "parent_only"
+      ],
+      "title": "PresentIn",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "concordant_pairs": {
+      "items": {
+        "$ref": "#/$defs/GoldConcordantPair"
+      },
+      "title": "Concordant Pairs",
+      "type": "array"
+    },
+    "conflicting_pairs": {
+      "items": {
+        "$ref": "#/$defs/GoldConcordantPair"
+      },
+      "title": "Conflicting Pairs",
+      "type": "array"
+    },
+    "discordant_items": {
+      "items": {
+        "$ref": "#/$defs/GoldDiscordantItem"
+      },
+      "title": "Discordant Items",
+      "type": "array"
+    }
+  },
+  "required": [
+    "concordant_pairs",
+    "discordant_items",
+    "conflicting_pairs"
+  ],
+  "title": "GoldDyad",
+  "type": "object"
+}
