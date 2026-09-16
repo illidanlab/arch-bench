@@ -274,7 +274,7 @@ Suggested citation:
 
 ## Contact
 
-Jiayu Zhou — <dearjiayu@gmail.com> · [illidanlab](https://github.com/illidanlab)
+Jiayu Zhou — <jiayuz@umich.edu> · [illidanlab](https://github.com/illidanlab)
 
 Questions about the corpus, the annotation protocol, or collaboration on the
 verified release and the planned corpus expansion are welcome.
